@@ -1,0 +1,27 @@
+// Include standard font and media definitions
+#include <font.defs>
+#include <media.defs>
+
+#media "1024x1280" 461 576
+
+// List the fonts that are supported, in this case all standard fonts...
+Font *
+
+// Manufacturer, model name, and version
+Manufacturer "Laurin Muth, UR, University of Regensburg"
+ModelName "Dumb e-paper"
+Version 1.0
+
+// PostScript printer attributes
+Attribute DefaultColorSpace "" Gray
+Attribute LandscapeOrientation "" Minus90
+Attribute LanguageLevel "" "3"
+Attribute Product "" "(Dumb e-paper)"
+Attribute PSVersion "" "(3010) 0"
+Attribute TTRasterizer "" Type42
+
+// Supported page sizes
+*MediaSize "1024x1280"
+
+// Specify the name of the PPD file we want to generate...
+PCFileName "e-paper.ppd"

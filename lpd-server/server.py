@@ -164,12 +164,20 @@ class Server:
         try:
             self.convert()
         except:
-            println("\n\nUPLOAD FAILED!\n")
+            print("\n\nUPLOAD FAILED!\n")
 
         try:
             os.remove(self.CONVERTED_FILE)
         except OSError:
             pass
+
+    def hostZeroConf(self):
+        while(True):
+            try:
+                self.zeroConf()
+            except:
+                print("Zeroconf failed. Starting again")
+            yield
 
 
     def zeroConf(self):
@@ -199,4 +207,7 @@ if __name__ == '__main__':
 
     while True:
         if server.waiting == False:
-            server.host()
+            #try:
+                server.host()
+           # except:
+               # print("LPD Server failed. Starting again")

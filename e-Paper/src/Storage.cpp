@@ -1,7 +1,7 @@
 #include "Storage.hpp"
 
-char* Storage::ssid = (char*)"                              ";
-char* Storage::password = (char*)"                              ";
+char* Storage::ssid = new char[32];
+char* Storage::password = new char[32];
 
 void Storage::read() {
     EEPROM.begin(512);
@@ -22,8 +22,8 @@ void Storage::write(char* ssid, char* password) {
     Serial.println(password);
 
     EEPROM.begin(512);
-    EEPROM.put(0, ssid);
-    EEPROM.put(0+sizeof(ssid), password);
+    EEPROM.put(0, strdup(ssid));
+    EEPROM.put(0+sizeof(ssid), strdup(password));
     EEPROM.commit();
     EEPROM.end();
 }

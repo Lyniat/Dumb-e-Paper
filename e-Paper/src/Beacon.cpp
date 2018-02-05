@@ -5,8 +5,8 @@ const char* Beacon::ownPassword = "MyPassword";
 
 bool Beacon::hosting = false;
 
-char* Beacon::nextID = (char*)"";
-char* Beacon::nextPassword = (char*)"";
+char* Beacon::nextID = new char[32];
+char* Beacon::nextPassword = new char[32];
 
 WiFiServer webServer(80);
 
