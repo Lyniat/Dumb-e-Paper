@@ -1,0 +1,281 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="_wi_fi_handler_8hpp" kind="file" language="C++">
+    <compoundname>WiFiHandler.hpp</compoundname>
+    <includes refid="main_8hpp" local="yes">main.hpp</includes>
+    <includedby refid="main_8hpp" local="yes">/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/main.hpp</includedby>
+    <includedby refid="_wi_fi_handler_8cpp" local="yes">/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/WiFiHandler.cpp</includedby>
+    <incdepgraph>
+      <node id="291">
+        <label>Tools.hpp</label>
+        <link refid="_tools_8hpp_source"/>
+        <childnode refid="279" relation="include">
+        </childnode>
+      </node>
+      <node id="282">
+        <label>SPI.h</label>
+      </node>
+      <node id="288">
+        <label>LED.hpp</label>
+        <link refid="_l_e_d_8hpp_source"/>
+        <childnode refid="279" relation="include">
+        </childnode>
+      </node>
+      <node id="284">
+        <label>Website.hpp</label>
+        <link refid="_website_8hpp_source"/>
+        <childnode refid="279" relation="include">
+        </childnode>
+      </node>
+      <node id="286">
+        <label>ESP8266mDNS.h</label>
+      </node>
+      <node id="289">
+        <label>Storage.hpp</label>
+        <link refid="_storage_8hpp_source"/>
+        <childnode refid="290" relation="include">
+        </childnode>
+        <childnode refid="279" relation="include">
+        </childnode>
+      </node>
+      <node id="281">
+        <label>SPIHandler.hpp</label>
+        <link refid="_s_p_i_handler_8hpp_source"/>
+        <childnode refid="282" relation="include">
+        </childnode>
+        <childnode refid="279" relation="include">
+        </childnode>
+      </node>
+      <node id="278">
+        <label>/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/WiFiHandler.hpp</label>
+        <link refid="_wi_fi_handler_8hpp"/>
+        <childnode refid="279" relation="include">
+        </childnode>
+      </node>
+      <node id="285">
+        <label>ESP8266WiFi.h</label>
+      </node>
+      <node id="287">
+        <label>MainStates.hpp</label>
+        <link refid="_main_states_8hpp_source"/>
+      </node>
+      <node id="280">
+        <label>Arduino.h</label>
+      </node>
+      <node id="283">
+        <label>Beacon.hpp</label>
+        <link refid="_beacon_8hpp_source"/>
+        <childnode refid="279" relation="include">
+        </childnode>
+        <childnode refid="284" relation="include">
+        </childnode>
+        <childnode refid="285" relation="include">
+        </childnode>
+        <childnode refid="286" relation="include">
+        </childnode>
+      </node>
+      <node id="290">
+        <label>EEPROM.h</label>
+      </node>
+      <node id="279">
+        <label>main.hpp</label>
+        <link refid="main_8hpp_source"/>
+        <childnode refid="280" relation="include">
+        </childnode>
+        <childnode refid="279" relation="include">
+        </childnode>
+        <childnode refid="281" relation="include">
+        </childnode>
+        <childnode refid="278" relation="include">
+        </childnode>
+        <childnode refid="283" relation="include">
+        </childnode>
+        <childnode refid="287" relation="include">
+        </childnode>
+        <childnode refid="288" relation="include">
+        </childnode>
+        <childnode refid="289" relation="include">
+        </childnode>
+        <childnode refid="291" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="298">
+        <label>/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/Tools.hpp</label>
+        <link refid="_tools_8hpp_source"/>
+        <childnode refid="293" relation="include">
+        </childnode>
+      </node>
+      <node id="296">
+        <label>/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/LED.hpp</label>
+        <link refid="_l_e_d_8hpp_source"/>
+        <childnode refid="293" relation="include">
+        </childnode>
+      </node>
+      <node id="299">
+        <label>/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/Website.hpp</label>
+        <link refid="_website_8hpp_source"/>
+        <childnode refid="294" relation="include">
+        </childnode>
+      </node>
+      <node id="297">
+        <label>/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/Storage.hpp</label>
+        <link refid="_storage_8hpp_source"/>
+        <childnode refid="293" relation="include">
+        </childnode>
+      </node>
+      <node id="295">
+        <label>/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/SPIHandler.hpp</label>
+        <link refid="_s_p_i_handler_8hpp_source"/>
+        <childnode refid="293" relation="include">
+        </childnode>
+      </node>
+      <node id="292">
+        <label>/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/WiFiHandler.hpp</label>
+        <link refid="_wi_fi_handler_8hpp"/>
+        <childnode refid="293" relation="include">
+        </childnode>
+      </node>
+      <node id="294">
+        <label>/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/Beacon.hpp</label>
+        <link refid="_beacon_8hpp_source"/>
+        <childnode refid="293" relation="include">
+        </childnode>
+      </node>
+      <node id="293">
+        <label>/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/main.hpp</label>
+        <link refid="main_8hpp_source"/>
+        <childnode refid="294" relation="include">
+        </childnode>
+        <childnode refid="293" relation="include">
+        </childnode>
+        <childnode refid="295" relation="include">
+        </childnode>
+        <childnode refid="292" relation="include">
+        </childnode>
+        <childnode refid="296" relation="include">
+        </childnode>
+        <childnode refid="297" relation="include">
+        </childnode>
+        <childnode refid="298" relation="include">
+        </childnode>
+        <childnode refid="299" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_wi_fi_handler" prot="public">WiFiHandler</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="_wi_fi_handler_8hpp_1ad190cd13ffa314c9832effb29419e276" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>WiFiStatus</name>
+        <enumvalue id="_wi_fi_handler_8hpp_1ad190cd13ffa314c9832effb29419e276a23d810fd453be783ee7acbe5126e5c78" prot="public">
+          <name>WIFI_SUCCESS</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_wi_fi_handler_8hpp_1ad190cd13ffa314c9832effb29419e276ade97751e209e1e44c89ba20e89c69158" prot="public">
+          <name>WIFI_ERROR</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_wi_fi_handler_8hpp_1ad190cd13ffa314c9832effb29419e276a46738d206fe59a048be2111e42647b88" prot="public">
+          <name>WIFI_WAIT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_wi_fi_handler_8hpp_1ad190cd13ffa314c9832effb29419e276a4cf02414dd62dcff9f726c8b7924201a" prot="public">
+          <name>SHOW_PICTURE_01</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_wi_fi_handler_8hpp_1ad190cd13ffa314c9832effb29419e276a4ef68850595b060d2f3317053bab796b" prot="public">
+          <name>SHOW_PICTURE_02</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_wi_fi_handler_8hpp_1ad190cd13ffa314c9832effb29419e276aff569fcb394b1691c99f7ce67c6febfa" prot="public">
+          <name>CLEAR_SCREEN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/WiFiHandler.hpp" line="9" column="1" bodyfile="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/WiFiHandler.hpp" bodystart="8" bodyend="16"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="_wi_fi_handler_8hpp_1a11717c934f77ad5167dac5d28562d85a" prot="public" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int PORT</definition>
+        <argsstring></argsstring>
+        <name>PORT</name>
+        <initializer>= 1516</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/WiFiHandler.hpp" line="6" column="1" bodyfile="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/WiFiHandler.hpp" bodystart="6" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>__WIFIHANDLER_H_INCLUDED__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__WIFIHANDLER_H_INCLUDED__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;main.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>PORT<sp/>=<sp/>1516;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/>WiFiStatus</highlight></codeline>
+<codeline lineno="9"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/>WIFI_SUCCESS,</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>WIFI_ERROR,</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>WIFI_WAIT,</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>SHOW_PICTURE_01,</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>SHOW_PICTURE_02,</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>CLEAR_SCREEN</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="class_wi_fi_handler" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_wi_fi_handler" kindref="compound">WiFiHandler</ref></highlight></codeline>
+<codeline lineno="19"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>init(String<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/>String<sp/>password);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>WiFiStatus<sp/>handle(byte<sp/>*buffer,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>le);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>requestDataChunk();</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>byte<sp/>O;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>byte<sp/>K;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*ip;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/WiFiHandler.hpp"/>
+  </compounddef>
+</doxygen>

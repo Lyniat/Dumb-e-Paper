@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="class_tools" kind="class" language="C++" prot="public">
+    <compoundname>Tools</compoundname>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_tools_1a1bfca9bdc4da2f169dcc382774833dc5" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char *</type>
+        <definition>char * Tools::getValueFromString</definition>
+        <argsstring>(char *data, char separator, int index)</argsstring>
+        <name>getValueFromString</name>
+        <param>
+          <type>char *</type>
+          <declname>data</declname>
+          <defname>_data</defname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>separator</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>splits string at separator </para>        </briefdescription>
+        <detaileddescription>
+<para>source: <ulink url="https://stackoverflow.com/questions/9072320/split-string-into-string-array">https://stackoverflow.com/questions/9072320/split-string-into-string-array</ulink></para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>_data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>separator</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>char* </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/Tools.hpp" line="9" column="1" bodyfile="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/Tools.cpp" bodystart="13" bodyend="31"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/Tools.hpp" line="7" column="1" bodyfile="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/Tools.hpp" bodystart="6" bodyend="10"/>
+    <listofallmembers>
+      <member refid="class_tools_1a1bfca9bdc4da2f169dcc382774833dc5" prot="public" virt="non-virtual"><scope>Tools</scope><name>getValueFromString</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="dir_12646474959761505028299e34e3460a" kind="dir">
+    <compoundname>/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src</compoundname>
+    <innerfile refid="_beacon_8cpp">Beacon.cpp</innerfile>
+    <innerfile refid="_beacon_8hpp">Beacon.hpp</innerfile>
+    <innerfile refid="_l_e_d_8cpp">LED.cpp</innerfile>
+    <innerfile refid="_l_e_d_8hpp">LED.hpp</innerfile>
+    <innerfile refid="main_8cpp">main.cpp</innerfile>
+    <innerfile refid="main_8hpp">main.hpp</innerfile>
+    <innerfile refid="_main_states_8hpp">MainStates.hpp</innerfile>
+    <innerfile refid="sdkconfig_8hpp">sdkconfig.hpp</innerfile>
+    <innerfile refid="_s_p_i_handler_8cpp">SPIHandler.cpp</innerfile>
+    <innerfile refid="_s_p_i_handler_8hpp">SPIHandler.hpp</innerfile>
+    <innerfile refid="_storage_8cpp">Storage.cpp</innerfile>
+    <innerfile refid="_storage_8hpp">Storage.hpp</innerfile>
+    <innerfile refid="_tools_8cpp">Tools.cpp</innerfile>
+    <innerfile refid="_tools_8hpp">Tools.hpp</innerfile>
+    <innerfile refid="_website_8hpp">Website.hpp</innerfile>
+    <innerfile refid="_wi_fi_handler_8cpp">WiFiHandler.cpp</innerfile>
+    <innerfile refid="_wi_fi_handler_8hpp">WiFiHandler.hpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/"/>
+  </compounddef>
+</doxygen>

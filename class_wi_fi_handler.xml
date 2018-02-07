@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="class_wi_fi_handler" kind="class" language="C++" prot="public">
+    <compoundname>WiFiHandler</compoundname>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_wi_fi_handler_1a95be0e6a7253397a91ac6719b5767d85" prot="private" static="yes" mutable="no">
+        <type>const byte</type>
+        <definition>const byte WiFiHandler::O</definition>
+        <argsstring></argsstring>
+        <name>O</name>
+        <initializer>= 0x4F</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/WiFiHandler.hpp" line="28" column="1" bodyfile="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/WiFiHandler.hpp" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_wi_fi_handler_1a070e12a71035d4342ca07a090313d99d" prot="private" static="yes" mutable="no">
+        <type>const byte</type>
+        <definition>const byte WiFiHandler::K</definition>
+        <argsstring></argsstring>
+        <name>K</name>
+        <initializer>= 0x4B</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/WiFiHandler.hpp" line="29" column="1" bodyfile="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/WiFiHandler.hpp" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_wi_fi_handler_1afe489f1cfddf16eba69accdb5cb02600" prot="private" static="yes" mutable="no">
+        <type>char *</type>
+        <definition>char * WiFiHandler::ip</definition>
+        <argsstring></argsstring>
+        <name>ip</name>
+        <initializer>= (char *)&quot;&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/WiFiHandler.hpp" line="31" column="1" bodyfile="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/WiFiHandler.hpp" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_wi_fi_handler_1afd3e0196e58219925963b38f5349f9cf" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool WiFiHandler::init</definition>
+        <argsstring>(String id, String password)</argsstring>
+        <name>init</name>
+        <param>
+          <type>String</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>password</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/WiFiHandler.hpp" line="21" column="1" bodyfile="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/WiFiHandler.cpp" bodystart="11" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="class_wi_fi_handler_1ac4cd1eb117f6c8e1f45afa235e44fdda" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>WiFiStatus</type>
+        <definition>WiFiStatus WiFiHandler::handle</definition>
+        <argsstring>(byte *buffer, int le)</argsstring>
+        <name>handle</name>
+        <param>
+          <type>byte *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>le</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/WiFiHandler.hpp" line="23" column="1" bodyfile="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/WiFiHandler.cpp" bodystart="55" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="class_wi_fi_handler_1a6729e153e9f8e2310fad91952d6f4307" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WiFiHandler::requestDataChunk</definition>
+        <argsstring>()</argsstring>
+        <name>requestDataChunk</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/WiFiHandler.hpp" line="25" column="1" bodyfile="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/WiFiHandler.cpp" bodystart="80" bodyend="84"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/WiFiHandler.hpp" line="19" column="1" bodyfile="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/WiFiHandler.hpp" bodystart="18" bodyend="32"/>
+    <listofallmembers>
+      <member refid="class_wi_fi_handler_1ac4cd1eb117f6c8e1f45afa235e44fdda" prot="public" virt="non-virtual"><scope>WiFiHandler</scope><name>handle</name></member>
+      <member refid="class_wi_fi_handler_1afd3e0196e58219925963b38f5349f9cf" prot="public" virt="non-virtual"><scope>WiFiHandler</scope><name>init</name></member>
+      <member refid="class_wi_fi_handler_1afe489f1cfddf16eba69accdb5cb02600" prot="private" virt="non-virtual"><scope>WiFiHandler</scope><name>ip</name></member>
+      <member refid="class_wi_fi_handler_1a070e12a71035d4342ca07a090313d99d" prot="private" virt="non-virtual"><scope>WiFiHandler</scope><name>K</name></member>
+      <member refid="class_wi_fi_handler_1a95be0e6a7253397a91ac6719b5767d85" prot="private" virt="non-virtual"><scope>WiFiHandler</scope><name>O</name></member>
+      <member refid="class_wi_fi_handler_1a6729e153e9f8e2310fad91952d6f4307" prot="public" virt="non-virtual"><scope>WiFiHandler</scope><name>requestDataChunk</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

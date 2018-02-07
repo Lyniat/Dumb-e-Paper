@@ -1,0 +1,294 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="_s_p_i_handler_8cpp" kind="file" language="C++">
+    <compoundname>SPIHandler.cpp</compoundname>
+    <includes refid="_s_p_i_handler_8hpp" local="yes">SPIHandler.hpp</includes>
+    <incdepgraph>
+      <node id="140">
+        <label>Tools.hpp</label>
+        <link refid="_tools_8hpp_source"/>
+        <childnode refid="129" relation="include">
+        </childnode>
+      </node>
+      <node id="128">
+        <label>SPI.h</label>
+      </node>
+      <node id="137">
+        <label>LED.hpp</label>
+        <link refid="_l_e_d_8hpp_source"/>
+        <childnode refid="129" relation="include">
+        </childnode>
+      </node>
+      <node id="133">
+        <label>Website.hpp</label>
+        <link refid="_website_8hpp_source"/>
+        <childnode refid="129" relation="include">
+        </childnode>
+      </node>
+      <node id="135">
+        <label>ESP8266mDNS.h</label>
+      </node>
+      <node id="138">
+        <label>Storage.hpp</label>
+        <link refid="_storage_8hpp_source"/>
+        <childnode refid="139" relation="include">
+        </childnode>
+        <childnode refid="129" relation="include">
+        </childnode>
+      </node>
+      <node id="127">
+        <label>SPIHandler.hpp</label>
+        <link refid="_s_p_i_handler_8hpp_source"/>
+        <childnode refid="128" relation="include">
+        </childnode>
+        <childnode refid="129" relation="include">
+        </childnode>
+      </node>
+      <node id="131">
+        <label>WiFiHandler.hpp</label>
+        <link refid="_wi_fi_handler_8hpp_source"/>
+        <childnode refid="129" relation="include">
+        </childnode>
+      </node>
+      <node id="134">
+        <label>ESP8266WiFi.h</label>
+      </node>
+      <node id="136">
+        <label>MainStates.hpp</label>
+        <link refid="_main_states_8hpp_source"/>
+      </node>
+      <node id="126">
+        <label>/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/SPIHandler.cpp</label>
+        <link refid="_s_p_i_handler_8cpp"/>
+        <childnode refid="127" relation="include">
+        </childnode>
+      </node>
+      <node id="130">
+        <label>Arduino.h</label>
+      </node>
+      <node id="132">
+        <label>Beacon.hpp</label>
+        <link refid="_beacon_8hpp_source"/>
+        <childnode refid="129" relation="include">
+        </childnode>
+        <childnode refid="133" relation="include">
+        </childnode>
+        <childnode refid="134" relation="include">
+        </childnode>
+        <childnode refid="135" relation="include">
+        </childnode>
+      </node>
+      <node id="139">
+        <label>EEPROM.h</label>
+      </node>
+      <node id="129">
+        <label>main.hpp</label>
+        <link refid="main_8hpp_source"/>
+        <childnode refid="130" relation="include">
+        </childnode>
+        <childnode refid="129" relation="include">
+        </childnode>
+        <childnode refid="127" relation="include">
+        </childnode>
+        <childnode refid="131" relation="include">
+        </childnode>
+        <childnode refid="132" relation="include">
+        </childnode>
+        <childnode refid="136" relation="include">
+        </childnode>
+        <childnode refid="137" relation="include">
+        </childnode>
+        <childnode refid="138" relation="include">
+        </childnode>
+        <childnode refid="140" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;SPIHandler.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>SPIHandler::spiTime<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>SPIHandler::lastSpiTime<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>SPIHandler::printSpiTime()</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.print(</highlight><highlight class="stringliteral">&quot;SPI<sp/>time:<sp/>&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.println(spiTime);</highlight></codeline>
+<codeline lineno="10"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_s_p_i_handler_1aca9e77aeb4179c5a4bd3d82e36cf2b5d" kindref="member">SPIHandler::init</ref>()</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>initialize<sp/>SPI:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>SPI.begin();</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//SPI.setClockDivider<sp/>(SPI_CLOCK_DIV8);<sp/><sp/>//slow<sp/>the<sp/>clock<sp/>down<sp/>(recommended:<sp/>3mhz,<sp/>max:<sp/>12mhz)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>SPI.setFrequency(4000000L);<sp/></highlight><highlight class="comment">//<sp/>500000</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>SPI.setDataMode(SPI_MODE3);<sp/></highlight><highlight class="comment">//<sp/>CPOL<sp/>=<sp/>1,<sp/>CPH<sp/>=<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>SPI.setBitOrder(MSBFIRST);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//does<sp/>not<sp/>work<sp/>with<sp/>my<sp/>IDE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//SPI.beginTransaction<sp/>(SPISettings<sp/>(1000000,<sp/>MSBFIRST,<sp/>SPI_MODE0));</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_s_p_i_handler_1afcc97347510627ef0e101f591fe7ee27" kindref="member">SPIHandler::spiWrite</ref>(byte<sp/>*data,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>commandLength,<sp/>byte<sp/>*result,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>resultLength)</highlight></codeline>
+<codeline lineno="38"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>lastSpiTime<sp/>=<sp/>micros();</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>delay(0)<sp/>is<sp/>used<sp/>to<sp/>prevent<sp/>cpu<sp/>lock<sp/>result<sp/>in<sp/>WDT<sp/>resets</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>yield();</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//uint8_t*<sp/>out<sp/>=<sp/>(uint8_t*)<sp/>malloc(commandLength<sp/>+<sp/>resultLength);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>wait<sp/>until<sp/>controller<sp/>is<sp/>ready</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(digitalRead(PIN_BUSY)<sp/>==<sp/>LOW)</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//yield();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>delayMicroseconds(5);<sp/></highlight><highlight class="comment">//100</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>send<sp/>command<sp/>to<sp/>controller</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>digitalWrite(PIN_CS,<sp/>LOW);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//yield();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>delayMicroseconds(10);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*for(int<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>commandLength;<sp/>i++)</highlight></codeline>
+<codeline lineno="58"><highlight class="comment"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="59"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>SPI.transfer(data[i]);</highlight></codeline>
+<codeline lineno="60"><highlight class="comment"><sp/><sp/><sp/><sp/>}*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>SPI.writeBytes(data,<sp/>commandLength);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*for(int<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>commandLength<sp/>+<sp/>resultLength;<sp/>i++)</highlight></codeline>
+<codeline lineno="64"><highlight class="comment"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="65"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.println(out[i],<sp/>HEX);</highlight></codeline>
+<codeline lineno="66"><highlight class="comment"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="67"><highlight class="comment"><sp/><sp/><sp/><sp/>free(out);*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//yield();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>delayMicroseconds(5);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>digitalWrite(PIN_CS,<sp/>HIGH);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>wait<sp/>until<sp/>controller<sp/>is<sp/>ready</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(digitalRead(PIN_BUSY)<sp/>==<sp/>LOW)</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>delayMicroseconds(5);<sp/></highlight><highlight class="comment">//100</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>digitalWrite(PIN_CS,<sp/>LOW);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>delayMicroseconds(10);<sp/></highlight><highlight class="comment">//10</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>read<sp/>answer<sp/>from<sp/>controller<sp/>and<sp/>save<sp/>it<sp/>to<sp/>result<sp/>pointer</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>resultLength;<sp/>i++)</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result[i]<sp/>=<sp/>SPI.transfer(0x00);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>delayMicroseconds(5);<sp/></highlight><highlight class="comment">//10</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>digitalWrite(PIN_CS,<sp/>HIGH);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>spiTime<sp/>+=<sp/>(micros()<sp/>-<sp/>lastSpiTime);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>SPIHandler::start()</highlight></codeline>
+<codeline lineno="94"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//start<sp/>the<sp/>device</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.println(</highlight><highlight class="stringliteral">&quot;initializing...&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>digitalWrite(PIN_EN,<sp/>HIGH);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>delay(100);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.println(</highlight><highlight class="stringliteral">&quot;set<sp/>en<sp/>to<sp/>low...&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>digitalWrite(PIN_EN,<sp/>LOW);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.println(</highlight><highlight class="stringliteral">&quot;wait<sp/>for<sp/>BUSY<sp/>rising<sp/>edge...&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(digitalRead(PIN_BUSY)<sp/>==<sp/>LOW)</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>delay(1);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.println(</highlight><highlight class="stringliteral">&quot;set<sp/>CS<sp/>to<sp/>high...&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>digitalWrite(PIN_CS,<sp/>HIGH);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.println(</highlight><highlight class="stringliteral">&quot;wait<sp/>for<sp/>one<sp/>second...&quot;</highlight><highlight class="normal">);<sp/></highlight><highlight class="comment">//to<sp/>give<sp/>us<sp/>time<sp/>to<sp/>open<sp/>serial<sp/>monitor</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>delay(1000);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.println(</highlight><highlight class="stringliteral">&quot;starting...&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal">uint16_t<sp/><ref refid="class_s_p_i_handler_1ac13b5367ed0d5f3db318f542e223b4be" kindref="member">SPIHandler::uploadImageData</ref>(byte<sp/>slotNumber,<sp/>byte<sp/>packetSize,<sp/>byte<sp/>*data)</highlight></codeline>
+<codeline lineno="145"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/>result;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/>byte<sp/>params[4]<sp/>=<sp/>{0x20,<sp/>0x01,<sp/>slotNumber,<sp/>packetSize};</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>byte<sp/>*input;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>resultLength<sp/>=<sp/>2;</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/>byte<sp/>buffer[resultLength];</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//unsigned<sp/>long<sp/>lastTimeMalloc<sp/>=<sp/>0;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//unsigned<sp/>long<sp/>lastTimeMemcpy<sp/>=<sp/>0;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//unsigned<sp/>long<sp/>lastTimeSpiWrite<sp/>=<sp/>0;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//lastTimeMalloc<sp/>=<sp/>millis();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/>input<sp/>=<sp/>(byte<sp/>*)malloc((</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal"><sp/>params<sp/>+<sp/>packetSize)<sp/>*<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(byte));</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Serial.print(&quot;time<sp/>malloc:<sp/>&quot;);<sp/>Serial.println(millis()<sp/>-<sp/>lastTimeMalloc);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//lastTimeMemcpy<sp/>=<sp/>millis();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/>memcpy(input,<sp/>params,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(params)<sp/>*<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(byte));</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/>memcpy(input<sp/>+<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(params),<sp/>data,<sp/>packetSize<sp/>*<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(byte));</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Serial.print(&quot;time<sp/>cpy:<sp/>&quot;);<sp/>Serial.println(millis()<sp/>-<sp/>lastTimeMemcpy);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//lastTimeSpiWrite<sp/>=<sp/>millis();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_s_p_i_handler_1afcc97347510627ef0e101f591fe7ee27" kindref="member">spiWrite</ref>(input,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal"><sp/>params<sp/>+<sp/>packetSize,<sp/>buffer,<sp/>resultLength);</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Serial.print(&quot;time<sp/>spi:<sp/>&quot;);<sp/>Serial.println(millis()<sp/>-<sp/>lastTimeSpiWrite);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>convert<sp/>result<sp/>code<sp/>to<sp/>uint16</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>resultLength;<sp/>i++)</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result<sp/>&lt;&lt;=<sp/>8;</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result<sp/>|=<sp/>buffer[i];</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/>free(input);</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>result;</highlight></codeline>
+<codeline lineno="178"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal">uint16_t<sp/><ref refid="class_s_p_i_handler_1a7655f1c7f891c95e9c0c4253defbe19b" kindref="member">SPIHandler::imageEraseFrameBuffer</ref>(byte<sp/>slotNumber)</highlight></codeline>
+<codeline lineno="197"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/>result;</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/>byte<sp/>input[3]<sp/>=<sp/>{0x20,<sp/>0x0E,<sp/>slotNumber};</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>resultLength<sp/>=<sp/>2;</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/>byte<sp/>buffer[resultLength];</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_s_p_i_handler_1afcc97347510627ef0e101f591fe7ee27" kindref="member">spiWrite</ref>(input,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(input),<sp/>buffer,<sp/>resultLength);</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>convert<sp/>result<sp/>code<sp/>to<sp/>uint16</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>resultLength;<sp/>i++)</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result<sp/>&lt;&lt;=<sp/>8;</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result<sp/>|=<sp/>buffer[i];</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>result;</highlight></codeline>
+<codeline lineno="213"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight></codeline>
+<codeline lineno="233"><highlight class="normal">uint16_t<sp/><ref refid="class_s_p_i_handler_1a8a7f23cd7178b27fa21e871a1e1fff14" kindref="member">SPIHandler::displayUpdate</ref>(byte<sp/>updateMode)</highlight></codeline>
+<codeline lineno="234"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/>result;</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/>byte<sp/>input[4]<sp/>=<sp/>{updateMode,<sp/>0x01,<sp/>0x00,<sp/>0x00};</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>resultLength<sp/>=<sp/>2;</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/>byte<sp/>buffer[resultLength];</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"></highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_s_p_i_handler_1afcc97347510627ef0e101f591fe7ee27" kindref="member">spiWrite</ref>(input,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(input),<sp/>buffer,<sp/>resultLength);</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"></highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>convert<sp/>result<sp/>code<sp/>to<sp/>uint16</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>resultLength;<sp/>i++)</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result<sp/>&lt;&lt;=<sp/>8;</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result<sp/>|=<sp/>buffer[i];</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"></highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>result;</highlight></codeline>
+<codeline lineno="250"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/SPIHandler.cpp"/>
+  </compounddef>
+</doxygen>

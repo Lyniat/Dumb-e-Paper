@@ -1,0 +1,167 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="class_beacon" kind="class" language="C++" prot="public">
+    <compoundname>Beacon</compoundname>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_beacon_1ab1de6cb8f8a3dc8f215c2a8c04022063" prot="private" static="yes" mutable="no">
+        <type>const char *</type>
+        <definition>const char * Beacon::ownSSID</definition>
+        <argsstring></argsstring>
+        <name>ownSSID</name>
+        <initializer>= &quot;e-Paper&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/Beacon.hpp" line="24" column="1" bodyfile="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/Beacon.hpp" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_beacon_1a8e7b3465ab65dead53bdde1020fd9447" prot="private" static="yes" mutable="no">
+        <type>const char *</type>
+        <definition>const char * Beacon::ownPassword</definition>
+        <argsstring></argsstring>
+        <name>ownPassword</name>
+        <initializer>= &quot;MyPassword&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/Beacon.hpp" line="25" column="1" bodyfile="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/Beacon.hpp" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_beacon_1ae89ae434063a9776b96f6bc0ce7f11e6" prot="private" static="yes" mutable="no">
+        <type>bool</type>
+        <definition>bool Beacon::hosting</definition>
+        <argsstring></argsstring>
+        <name>hosting</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/Beacon.hpp" line="27" column="1" bodyfile="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/Beacon.hpp" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_beacon_1a92d1e67f10aac0866ac64d1dbbd7fe96" prot="private" static="yes" mutable="no">
+        <type>char *</type>
+        <definition>char * Beacon::nextID</definition>
+        <argsstring></argsstring>
+        <name>nextID</name>
+        <initializer>= new char[32]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/Beacon.hpp" line="29" column="1" bodyfile="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/Beacon.hpp" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_beacon_1ab480863af2189ffb73d7f0b5cac028cb" prot="private" static="yes" mutable="no">
+        <type>char *</type>
+        <definition>char * Beacon::nextPassword</definition>
+        <argsstring></argsstring>
+        <name>nextPassword</name>
+        <initializer>= new char[32]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/Beacon.hpp" line="30" column="1" bodyfile="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/Beacon.hpp" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_beacon_1acb394acd98e7a26e53ac5ea061790f4d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Beacon::hostAP</definition>
+        <argsstring>()</argsstring>
+        <name>hostAP</name>
+        <briefdescription>
+<para>Called from main class to host AP. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true if ssid and password are fetched from web interface </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/Beacon.hpp" line="13" column="1" bodyfile="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/Beacon.cpp" bodystart="109" bodyend="137"/>
+      </memberdef>
+      <memberdef kind="function" id="class_beacon_1a764f7d109fed7526b28395b2bf9131b5" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char *</type>
+        <definition>char * Beacon::getSSID</definition>
+        <argsstring>()</argsstring>
+        <name>getSSID</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>ssid from web interface </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/Beacon.hpp" line="15" column="1" bodyfile="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/Beacon.cpp" bodystart="142" bodyend="145"/>
+      </memberdef>
+      <memberdef kind="function" id="class_beacon_1ab136bdd1bea81319954e1077df0cabbc" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char *</type>
+        <definition>char * Beacon::getPassword</definition>
+        <argsstring>()</argsstring>
+        <name>getPassword</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>password from web interface </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/Beacon.hpp" line="17" column="1" bodyfile="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/Beacon.cpp" bodystart="150" bodyend="153"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="class_beacon_1a556bc62240e0fe23c9651c70952afffd" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Beacon::hostWebsite</definition>
+        <argsstring>()</argsstring>
+        <name>hostWebsite</name>
+        <briefdescription>
+<para>Creates MDSN respnder. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/Beacon.hpp" line="20" column="1" bodyfile="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/Beacon.cpp" bodystart="87" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="class_beacon_1ae686a8341a223b64923deb19f7f475f8" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Beacon::handleWebsite</definition>
+        <argsstring>()</argsstring>
+        <name>handleWebsite</name>
+        <briefdescription>
+<para>Hosts setup website and parses ssid and password. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/Beacon.hpp" line="22" column="1" bodyfile="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/Beacon.cpp" bodystart="17" bodyend="81"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/Beacon.hpp" line="11" column="1" bodyfile="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/Beacon.hpp" bodystart="10" bodyend="31"/>
+    <listofallmembers>
+      <member refid="class_beacon_1ab136bdd1bea81319954e1077df0cabbc" prot="public" virt="non-virtual"><scope>Beacon</scope><name>getPassword</name></member>
+      <member refid="class_beacon_1a764f7d109fed7526b28395b2bf9131b5" prot="public" virt="non-virtual"><scope>Beacon</scope><name>getSSID</name></member>
+      <member refid="class_beacon_1ae686a8341a223b64923deb19f7f475f8" prot="private" virt="non-virtual"><scope>Beacon</scope><name>handleWebsite</name></member>
+      <member refid="class_beacon_1acb394acd98e7a26e53ac5ea061790f4d" prot="public" virt="non-virtual"><scope>Beacon</scope><name>hostAP</name></member>
+      <member refid="class_beacon_1ae89ae434063a9776b96f6bc0ce7f11e6" prot="private" virt="non-virtual"><scope>Beacon</scope><name>hosting</name></member>
+      <member refid="class_beacon_1a556bc62240e0fe23c9651c70952afffd" prot="private" virt="non-virtual"><scope>Beacon</scope><name>hostWebsite</name></member>
+      <member refid="class_beacon_1a92d1e67f10aac0866ac64d1dbbd7fe96" prot="private" virt="non-virtual"><scope>Beacon</scope><name>nextID</name></member>
+      <member refid="class_beacon_1ab480863af2189ffb73d7f0b5cac028cb" prot="private" virt="non-virtual"><scope>Beacon</scope><name>nextPassword</name></member>
+      <member refid="class_beacon_1a8e7b3465ab65dead53bdde1020fd9447" prot="private" virt="non-virtual"><scope>Beacon</scope><name>ownPassword</name></member>
+      <member refid="class_beacon_1ab1de6cb8f8a3dc8f215c2a8c04022063" prot="private" virt="non-virtual"><scope>Beacon</scope><name>ownSSID</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

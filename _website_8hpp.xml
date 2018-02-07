@@ -1,0 +1,191 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="_website_8hpp" kind="file" language="C++">
+    <compoundname>Website.hpp</compoundname>
+    <includes refid="main_8hpp" local="yes">main.hpp</includes>
+    <includedby refid="_beacon_8hpp" local="yes">/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/Beacon.hpp</includedby>
+    <incdepgraph>
+      <node id="253">
+        <label>Tools.hpp</label>
+        <link refid="_tools_8hpp_source"/>
+        <childnode refid="241" relation="include">
+        </childnode>
+      </node>
+      <node id="244">
+        <label>SPI.h</label>
+      </node>
+      <node id="250">
+        <label>LED.hpp</label>
+        <link refid="_l_e_d_8hpp_source"/>
+        <childnode refid="241" relation="include">
+        </childnode>
+      </node>
+      <node id="240">
+        <label>/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/Website.hpp</label>
+        <link refid="_website_8hpp"/>
+        <childnode refid="241" relation="include">
+        </childnode>
+      </node>
+      <node id="248">
+        <label>ESP8266mDNS.h</label>
+      </node>
+      <node id="251">
+        <label>Storage.hpp</label>
+        <link refid="_storage_8hpp_source"/>
+        <childnode refid="252" relation="include">
+        </childnode>
+        <childnode refid="241" relation="include">
+        </childnode>
+      </node>
+      <node id="243">
+        <label>SPIHandler.hpp</label>
+        <link refid="_s_p_i_handler_8hpp_source"/>
+        <childnode refid="244" relation="include">
+        </childnode>
+        <childnode refid="241" relation="include">
+        </childnode>
+      </node>
+      <node id="245">
+        <label>WiFiHandler.hpp</label>
+        <link refid="_wi_fi_handler_8hpp_source"/>
+        <childnode refid="241" relation="include">
+        </childnode>
+      </node>
+      <node id="247">
+        <label>ESP8266WiFi.h</label>
+      </node>
+      <node id="249">
+        <label>MainStates.hpp</label>
+        <link refid="_main_states_8hpp_source"/>
+      </node>
+      <node id="242">
+        <label>Arduino.h</label>
+      </node>
+      <node id="246">
+        <label>Beacon.hpp</label>
+        <link refid="_beacon_8hpp_source"/>
+        <childnode refid="241" relation="include">
+        </childnode>
+        <childnode refid="240" relation="include">
+        </childnode>
+        <childnode refid="247" relation="include">
+        </childnode>
+        <childnode refid="248" relation="include">
+        </childnode>
+      </node>
+      <node id="252">
+        <label>EEPROM.h</label>
+      </node>
+      <node id="241">
+        <label>main.hpp</label>
+        <link refid="main_8hpp_source"/>
+        <childnode refid="242" relation="include">
+        </childnode>
+        <childnode refid="241" relation="include">
+        </childnode>
+        <childnode refid="243" relation="include">
+        </childnode>
+        <childnode refid="245" relation="include">
+        </childnode>
+        <childnode refid="246" relation="include">
+        </childnode>
+        <childnode refid="249" relation="include">
+        </childnode>
+        <childnode refid="250" relation="include">
+        </childnode>
+        <childnode refid="251" relation="include">
+        </childnode>
+        <childnode refid="253" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="261">
+        <label>/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/Tools.hpp</label>
+        <link refid="_tools_8hpp_source"/>
+        <childnode refid="256" relation="include">
+        </childnode>
+      </node>
+      <node id="259">
+        <label>/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/LED.hpp</label>
+        <link refid="_l_e_d_8hpp_source"/>
+        <childnode refid="256" relation="include">
+        </childnode>
+      </node>
+      <node id="254">
+        <label>/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/Website.hpp</label>
+        <link refid="_website_8hpp"/>
+        <childnode refid="255" relation="include">
+        </childnode>
+      </node>
+      <node id="260">
+        <label>/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/Storage.hpp</label>
+        <link refid="_storage_8hpp_source"/>
+        <childnode refid="256" relation="include">
+        </childnode>
+      </node>
+      <node id="257">
+        <label>/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/SPIHandler.hpp</label>
+        <link refid="_s_p_i_handler_8hpp_source"/>
+        <childnode refid="256" relation="include">
+        </childnode>
+      </node>
+      <node id="258">
+        <label>/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/WiFiHandler.hpp</label>
+        <link refid="_wi_fi_handler_8hpp_source"/>
+        <childnode refid="256" relation="include">
+        </childnode>
+      </node>
+      <node id="255">
+        <label>/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/Beacon.hpp</label>
+        <link refid="_beacon_8hpp_source"/>
+        <childnode refid="256" relation="include">
+        </childnode>
+      </node>
+      <node id="256">
+        <label>/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/main.hpp</label>
+        <link refid="main_8hpp_source"/>
+        <childnode refid="255" relation="include">
+        </childnode>
+        <childnode refid="256" relation="include">
+        </childnode>
+        <childnode refid="257" relation="include">
+        </childnode>
+        <childnode refid="258" relation="include">
+        </childnode>
+        <childnode refid="259" relation="include">
+        </childnode>
+        <childnode refid="260" relation="include">
+        </childnode>
+        <childnode refid="261" relation="include">
+        </childnode>
+        <childnode refid="254" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innernamespace refid="namespace_website">Website</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>__WEBSITE_H_INCLUDED__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__WEBSITE_H_INCLUDED__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;main.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_website" kindref="compound">Website</ref></highlight></codeline>
+<codeline lineno="7"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>String<sp/>WEBSITE<sp/>=<sp/>R</highlight><highlight class="stringliteral">&quot;(</highlight></codeline>
+<codeline lineno="9"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&lt;!doctype<sp/>html&gt;&lt;html<sp/>lang=&quot;en&quot;&gt;&lt;head&gt;&lt;meta<sp/>charset=&quot;utf-8&quot;&gt;&lt;title&gt;e-Paper<sp/>Setup&lt;/title&gt;&lt;meta<sp/>name=&quot;description&quot;<sp/>content=&quot;e-Paper<sp/>Setup&quot;&gt;&lt;meta<sp/>name=&quot;author&quot;<sp/>content=&quot;Laurin<sp/>Muth&quot;&gt;&lt;/head&gt;&lt;body&gt;</highlight></codeline>
+<codeline lineno="10"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&lt;h1&gt;e-Paper<sp/>Setup&lt;/h1&gt;&lt;form&gt;Network<sp/>SSID:<sp/>&lt;input<sp/>type=&quot;text&quot;<sp/>name=&quot;SSID&quot;<sp/>id=&quot;ssid&quot;&gt;&lt;br&gt;Network<sp/>password:<sp/>&lt;input<sp/>type=&quot;password&quot;<sp/>name=&quot;pwd&quot;<sp/>id=&quot;pwd&quot;&gt;&lt;/form&gt;</highlight></codeline>
+<codeline lineno="11"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&lt;script&gt;function<sp/>submit(){var<sp/>ssid<sp/>=<sp/>document.getElementById(&quot;ssid&quot;).value;<sp/>var<sp/>pwd<sp/>=<sp/>document.getElementById(&quot;pwd&quot;).value;<sp/>var<sp/>i<sp/>=<sp/>document.createElement(&apos;img&apos;);<sp/>i.src<sp/>=<sp/>&apos;/login?ssid=&apos;+ssid+&apos;&amp;pwd=&apos;+pwd;}&lt;/script&gt;&lt;button<sp/>type=&quot;button&quot;<sp/>onclick=&quot;submit()<sp/>&quot;&gt;Submit!&lt;/button&gt;</highlight></codeline>
+<codeline lineno="12"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&lt;/body&gt;&lt;/html&gt;</highlight></codeline>
+<codeline lineno="13"><highlight class="stringliteral">)&quot;;</highlight></codeline>
+<codeline lineno="14"><highlight class="stringliteral">}</highlight></codeline>
+<codeline lineno="15"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="16"><highlight class="stringliteral"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/Website.hpp"/>
+  </compounddef>
+</doxygen>

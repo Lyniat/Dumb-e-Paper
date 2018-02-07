@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="namespace_website" kind="namespace" language="C++">
+    <compoundname>Website</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="_website_8hpp_1a14806395793480dcea4a099bfd146b28" prot="public" static="no" mutable="no">
+        <type>const String</type>
+        <definition>const String Website::WEBSITE</definition>
+        <argsstring></argsstring>
+        <name>WEBSITE</name>
+        <initializer>= R&quot;(
+    &lt;!doctype html&gt;&lt;html lang=&quot;en&quot;&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;title&gt;e-Paper Setup&lt;/title&gt;&lt;meta name=&quot;description&quot; content=&quot;e-Paper Setup&quot;&gt;&lt;meta name=&quot;author&quot; content=&quot;Laurin Muth&quot;&gt;&lt;/head&gt;&lt;body&gt;
+    &lt;h1&gt;e-Paper Setup&lt;/h1&gt;&lt;form&gt;Network SSID: &lt;input type=&quot;text&quot; name=&quot;SSID&quot; id=&quot;ssid&quot;&gt;&lt;br&gt;Network password: &lt;input type=&quot;password&quot; name=&quot;pwd&quot; id=&quot;pwd&quot;&gt;&lt;/form&gt;
+    &lt;script&gt;function submit(){var ssid = document.getElementById(&quot;ssid&quot;).value; var pwd = document.getElementById(&quot;pwd&quot;).value; var i = document.createElement(&apos;img&apos;); i.src = &apos;/login?ssid=&apos;+ssid+&apos;&amp;pwd=&apos;+pwd;}&lt;/script&gt;&lt;button type=&quot;button&quot; onclick=&quot;submit() &quot;&gt;Submit!&lt;/button&gt;
+    &lt;/body&gt;&lt;/html&gt;
+)&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/Website.hpp" line="8" column="1" bodyfile="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/Website.hpp" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/Website.hpp" line="7" column="1"/>
+  </compounddef>
+</doxygen>

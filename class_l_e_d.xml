@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="class_l_e_d" kind="class" language="C++" prot="public">
+    <compoundname>LED</compoundname>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_l_e_d_1a7cce08077f684e239bdce7e06b9fc970" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LED::setRed</definition>
+        <argsstring>(bool state)</argsstring>
+        <name>setRed</name>
+        <param>
+          <type>bool</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/LED.hpp" line="9" column="1" bodyfile="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/LED.cpp" bodystart="3" bodyend="6"/>
+      </memberdef>
+      <memberdef kind="function" id="class_l_e_d_1a60d50c068b1b269b105e2f31c335f335" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LED::setYellow</definition>
+        <argsstring>(bool state)</argsstring>
+        <name>setYellow</name>
+        <param>
+          <type>bool</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/LED.hpp" line="10" column="1" bodyfile="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/LED.cpp" bodystart="13" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="class_l_e_d_1a9ab8f69fceb186192ff5f72088daf87f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LED::setBlue</definition>
+        <argsstring>(bool state)</argsstring>
+        <name>setBlue</name>
+        <param>
+          <type>bool</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/LED.hpp" line="11" column="1" bodyfile="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/LED.cpp" bodystart="8" bodyend="11"/>
+      </memberdef>
+      <memberdef kind="function" id="class_l_e_d_1aa14dbe8a0520798348f2037b01592f40" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LED::setOnlyRed</definition>
+        <argsstring>()</argsstring>
+        <name>setOnlyRed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/LED.hpp" line="13" column="1" bodyfile="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/LED.cpp" bodystart="18" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="class_l_e_d_1ae69fc51245e512d20d913ec1994c1636" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LED::setOnlyYellow</definition>
+        <argsstring>()</argsstring>
+        <name>setOnlyYellow</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/LED.hpp" line="14" column="1" bodyfile="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/LED.cpp" bodystart="32" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="class_l_e_d_1a3a87ca8814ce7577578a5cf5d6fb4c16" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LED::setOnlyBlue</definition>
+        <argsstring>()</argsstring>
+        <name>setOnlyBlue</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/LED.hpp" line="15" column="1" bodyfile="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/LED.cpp" bodystart="25" bodyend="30"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/LED.hpp" line="7" column="1" bodyfile="/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper/src/LED.hpp" bodystart="6" bodyend="16"/>
+    <listofallmembers>
+      <member refid="class_l_e_d_1a9ab8f69fceb186192ff5f72088daf87f" prot="public" virt="non-virtual"><scope>LED</scope><name>setBlue</name></member>
+      <member refid="class_l_e_d_1a3a87ca8814ce7577578a5cf5d6fb4c16" prot="public" virt="non-virtual"><scope>LED</scope><name>setOnlyBlue</name></member>
+      <member refid="class_l_e_d_1aa14dbe8a0520798348f2037b01592f40" prot="public" virt="non-virtual"><scope>LED</scope><name>setOnlyRed</name></member>
+      <member refid="class_l_e_d_1ae69fc51245e512d20d913ec1994c1636" prot="public" virt="non-virtual"><scope>LED</scope><name>setOnlyYellow</name></member>
+      <member refid="class_l_e_d_1a7cce08077f684e239bdce7e06b9fc970" prot="public" virt="non-virtual"><scope>LED</scope><name>setRed</name></member>
+      <member refid="class_l_e_d_1a60d50c068b1b269b105e2f31c335f335" prot="public" virt="non-virtual"><scope>LED</scope><name>setYellow</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

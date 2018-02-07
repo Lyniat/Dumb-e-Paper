@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="dir_8a41e61a46ebdade911b046e53b32a5b" kind="dir">
+    <compoundname>/Users/laurin/Documents/Uni/Dumb-e-Paper</compoundname>
+    <innerdir refid="dir_8dc96c207ee3b376f90e2a7747f99e3a">/Users/laurin/Documents/Uni/Dumb-e-Paper/e-Paper</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/laurin/Documents/Uni/Dumb-e-Paper/"/>
+  </compounddef>
+</doxygen>
