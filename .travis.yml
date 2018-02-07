@@ -1,3 +1,8 @@
+branches:
+  only:
+    - master
+    - gh-pages
+
 language: python
 python:
     - "2.7"
@@ -10,6 +15,7 @@ install:
 
 script:
     - platformio ci --board=d1_mini
+
 deploy:
   provider: pages
   skip-cleanup: true
