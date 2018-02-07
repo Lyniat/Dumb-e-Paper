@@ -1,9 +1,0 @@
-*.DS_Store
-.idea
-*.eps
-*.ps
-*.pyc
-.pioenvs
-.piolibdeps
-.vscode/c_cpp_properties.json
-.vscode/launch.json

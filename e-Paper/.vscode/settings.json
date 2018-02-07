@@ -1,9 +1,0 @@
-{
-    "terminal.integrated.env.osx": {
-        "PATH": "/Users/laurin/.platformio/penv/bin:/Users/laurin/.platformio/penv:/Library/Frameworks/Python.framework/Versions/3.6/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet:/Library/Frameworks/Mono.framework/Versions/Current/Commands",
-        "PLATFORMIO_CALLER": "vscode"
-    },
-    "files.associations": {
-        "array": "cpp"
-    }
-}
