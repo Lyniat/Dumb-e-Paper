@@ -1,4 +1,15 @@
-language: cpp
+language: python
+python:
+    - "2.7"
+
+env:
+    - PLATFORMIO_CI_SRC=e-Paper/
+
+install:
+    - pip install -U platformio
+
+script:
+    - platformio ci --board=<ID_1> --board=<ID_2> --board=<ID_N>
 deploy:
   provider: pages
   skip-cleanup: true
