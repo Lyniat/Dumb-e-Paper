@@ -1,5 +1,6 @@
 # Dumb e-Paper
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![Build Status](https://travis-ci.org/Lyniat/Dumb-e-Paper.svg?branch=master)
 [![HitCount](http://hits.dwyl.io/lyniat/dumb-e-paper.svg)](http://hits.dwyl.io/lyniat/dumb-e-paper)
 
 ## Project Website
