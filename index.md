@@ -1,6 +1,6 @@
 # E-Paper by Laurin Muth and Andreas Schmid
 
-[GitHub](https://github.com/Lyniat/Dumb-e-Paper) / [Log](https://paper.lyniat.games)
+[GitHub](https://github.com/Lyniat/Dumb-e-Paper) / [Log](https://lyniat.github.io/Dumb-e-Paper/)
 
 Includes (as of February 2, 2018):
 * [ESP 8266 (WEMOS D1 mini R2)](https://wiki.wemos.cc/products:d1:d1_mini)
