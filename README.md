@@ -24,5 +24,5 @@ WIP
 * [PlatformIO](http://platformio.org)
 
 ## License
-* GPL v3
+* MIT
 * by [Andreas Schmid](https://hci.ur.de/people/andreas_schmid), [Laurin Muth](https://hci.ur.de/people/laurin_muth)
