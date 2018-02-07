@@ -4,8 +4,9 @@
 #include <SPI.h>
 #include "main.hpp"
 
-class SPIHandler {
-public:
+class SPIHandler
+{
+  public:
     // SPI functions
     static void printSpiTime();
 
@@ -19,8 +20,8 @@ public:
 
     // TCM2 functions
     static uint16_t uploadImageData(byte slotNumber, byte packetSize, byte *data);
-    static uint16_t imageEraseFrameBuffer(byte slotNumber);  // works
-    static uint16_t displayUpdate(byte updateMode = DISPLAY_UPDATE_MODE_DEFAULT);  // works
+    static uint16_t imageEraseFrameBuffer(byte slotNumber);                       // works
+    static uint16_t displayUpdate(byte updateMode = DISPLAY_UPDATE_MODE_DEFAULT); // works
 
     // possible result codes
     static const uint16_t EP_SW_NORMAL_PROCESSING = 0x9000;
@@ -34,8 +35,8 @@ public:
     static const uint16_t EP_SW_GENERAL_ERROR = 0x6F00;
 
     // diplay update modes
-    static const byte DISPLAY_UPDATE_MODE_DEFAULT = 0x82; // best quality
-    static const byte DISPLAY_UPDATE_MODE_FLASHLESS = 0x85; // fastest
+    static const byte DISPLAY_UPDATE_MODE_DEFAULT = 0x82;            // best quality
+    static const byte DISPLAY_UPDATE_MODE_FLASHLESS = 0x85;          // fastest
     static const byte DISPLAY_UPDATE_MODE_FLASHLESS_INVERTED = 0x86; // compromise between speed and quality
 
     /*
@@ -45,10 +46,9 @@ public:
                                        0x00, 0x00, 0x00, 0x00};
                                        */
 
-private:
+  private:
     static long spiTime;
     static long lastSpiTime;
 };
 
 #endif
-

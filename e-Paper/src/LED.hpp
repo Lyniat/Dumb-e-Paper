@@ -3,8 +3,9 @@
 
 #include "main.hpp"
 
-class LED{
-public:
+class LED
+{
+  public:
     static void setRed(bool state);
     static void setYellow(bool state);
     static void setBlue(bool state);

@@ -3,9 +3,10 @@
 
 #include "main.hpp"
 
-class Tools{
-public:
-    static char* getValueFromString(char* data, char separator, int index);
+class Tools
+{
+  public:
+    static char *getValueFromString(char *data, char separator, int index);
 };
 
 #endif

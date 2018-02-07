@@ -1,30 +1,36 @@
 #include "Beacon.hpp"
 
-const char* Beacon::ownSSID = "e-Paper";
-const char* Beacon::ownPassword = "MyPassword";
+const char *Beacon::ownSSID = "e-Paper";
+const char *Beacon::ownPassword = "MyPassword";
 
 bool Beacon::hosting = false;
 
-char* Beacon::nextID = new char[32];
-char* Beacon::nextPassword = new char[32];
+char *Beacon::nextID = new char[32];
+char *Beacon::nextPassword = new char[32];
 
 WiFiServer webServer(80);
 
 /**
- * create client and handle http requests
+ * @brief Hosts setup website and parses ssid and password
+ * 
  */
-void Beacon::handleWebsite() {
+void Beacon::handleWebsite()
+{
     WiFiClient client = webServer.available();
-    if (!client) {
+    if (!client)
+    {
         return;
     }
     Serial.println("");
     Serial.println("New client");
-    if (client) {
+    if (client)
+    {
         Serial.println("new client");
         // as long as client is connected
-        while (client.connected()) {
-            if (client.available()) {
+        while (client.connected())
+        {
+            if (client.available())
+            {
                 /* request end with '\r' -> this is HTTP protocol format */
                 String req = client.readStringUntil('\r');
                 /* First line of HTTP request is "GET / HTTP/1.1"
@@ -34,7 +40,8 @@ void Beacon::handleWebsite() {
                 /* now we parse the request to see which page the client want */
                 int addr_start = req.indexOf(' ');
                 int addr_end = req.indexOf(' ', addr_start + 1);
-                if (addr_start == -1 || addr_end == -1) {
+                if (addr_start == -1 || addr_end == -1)
+                {
                     Serial.print("Invalid request: ");
                     Serial.println(req);
                     return;
@@ -46,16 +53,19 @@ void Beacon::handleWebsite() {
 
                 String s;
                 /* if request is "/" then client request the first page at root "/" -> we process this by return "Hello world"*/
-                if (req == "/") {
+                if (req == "/")
+                {
                     s = Website::WEBSITE;
                     Serial.println("Sending 200");
-                } else {
-                    char* request = Tools::getValueFromString(strdup(req.c_str()), '?', 1);
+                }
+                else
+                {
+                    char *request = Tools::getValueFromString(strdup(req.c_str()), '?', 1);
                     Serial.println(request);
 
-                    char* ssid = Tools::getValueFromString(request, '&', 0);
+                    char *ssid = Tools::getValueFromString(request, '&', 0);
 
-                    char* pwd = Tools::getValueFromString(request, '&', 1);
+                    char *pwd = Tools::getValueFromString(request, '&', 1);
 
                     nextID = Tools::getValueFromString(ssid, '=', 1);
 
@@ -64,7 +74,6 @@ void Beacon::handleWebsite() {
                 /* send response back to client and then close connect since HTTP do not keep connection*/
                 client.print(s);
                 client.stop();
-
             }
         }
     }
@@ -72,12 +81,15 @@ void Beacon::handleWebsite() {
 }
 
 /**
- * create mdns responder
+ * @brief Creates MDSN respnder
+ * 
  */
-void Beacon::hostWebsite() {
+void Beacon::hostWebsite()
+{
 
     // set up mDNS
-    if (!MDNS.begin("esp32")) {
+    if (!MDNS.begin("esp32"))
+    {
         Serial.println("Error setting up MDNS responder!");
         return;
     }
@@ -91,14 +103,17 @@ void Beacon::hostWebsite() {
 }
 
 /**
- * host access point
- * @return return true if ssid and password are fetched from web interface
+ * @brief Called from main class to host AP
+ * @return true if ssid and password are fetched from web interface
  */
-bool Beacon::hostAP() {
+bool Beacon::hostAP()
+{
     handleWebsite();
 
-    if (hosting) {
-        if (strlen(nextID) != 0 && strlen(nextPassword) != 0) {
+    if (hosting)
+    {
+        if (strlen(nextID) != 0 && strlen(nextPassword) != 0)
+        {
             Serial.println("returning network info");
             return true;
         }
@@ -119,20 +134,20 @@ bool Beacon::hostAP() {
     hostWebsite();
 
     return false;
-
 }
 
 /**
  * @return ssid from web interface
  */
-char* Beacon::getSSID() {
+char *Beacon::getSSID()
+{
     return nextID;
 }
 
 /**
  * @return password from web interface
  */
-char* Beacon::getPassword() {
+char *Beacon::getPassword()
+{
     return nextPassword;
 }
-

@@ -7,16 +7,16 @@
 
 #include <ESP8266mDNS.h>
 
-class Beacon {
-public:
+class Beacon
+{
+  public:
     static bool hostAP();
 
-    static char* getSSID();
+    static char *getSSID();
 
-    static char* getPassword();
+    static char *getPassword();
 
-private:
-
+  private:
     static void hostWebsite();
 
     static void handleWebsite();
@@ -26,9 +26,8 @@ private:
 
     static bool hosting;
 
-    static char* nextID;
-    static char* nextPassword;
-
+    static char *nextID;
+    static char *nextPassword;
 };
 
 #endif

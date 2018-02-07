@@ -6,9 +6,10 @@ WiFiClient client;
 const byte WiFiHandler::O = 0x4F;
 const byte WiFiHandler::K = 0x4B;
 
-char* WiFiHandler::ip = (char*)"";
+char *WiFiHandler::ip = (char *)"";
 
-bool WiFiHandler::init(String ssid, String password) {
+bool WiFiHandler::init(String ssid, String password)
+{
     Serial.println(ssid);
     Serial.println(password);
 
@@ -25,12 +26,14 @@ bool WiFiHandler::init(String ssid, String password) {
 
     int counter = 0;
 
-    while (WiFi.status() != WL_CONNECTED) {
+    while (WiFi.status() != WL_CONNECTED)
+    {
         delay(500);
         Serial.print(".");
         counter++;
 
-        if (counter >= 25) {
+        if (counter >= 25)
+        {
             return false;
         }
     }
@@ -49,8 +52,10 @@ bool WiFiHandler::init(String ssid, String password) {
     return true;
 }
 
-wifiResponse WiFiHandler::handle(byte *buffer, int le) {
-    do {
+WiFiStatus WiFiHandler::handle(byte *buffer, int le)
+{
+    do
+    {
         yield();
         delayMicroseconds(5); // evtl normales delay
         client = server.available();
@@ -59,7 +64,8 @@ wifiResponse WiFiHandler::handle(byte *buffer, int le) {
 
     // Wait until the client sends some data
     //Serial.println("new client");
-    while (!client.available()) {
+    while (!client.available())
+    {
         yield();
         delayMicroseconds(5); // evtl normales delay
     }
@@ -68,14 +74,11 @@ wifiResponse WiFiHandler::handle(byte *buffer, int le) {
 
     client.flush();
 
-    return WIFI_SUCCESS;
+    return WiFiStatus::WIFI_SUCCESS;
 }
 
-void WiFiHandler::requestDataChunk() {
+void WiFiHandler::requestDataChunk()
+{
     client.write(O);
     client.write(K);
-
 }
-
-
-
