@@ -1,6 +1,6 @@
-# E-Paper by Laurin Muth and Andreas Schmid
+# E-Paper 📄 by Laurin Muth and Andreas Schmid
 
-[GitHub](https://github.com/Lyniat/Dumb-e-Paper) / [Log](https://lyniat.github.io/Dumb-e-Paper/)
+[GitHub](https://github.com/Lyniat/BA-e-ink/tree/master) / [Log](https://lyniat.github.io/BA-e-ink/)
 
 Includes (as of February 2, 2018):
 * [ESP 8266 (WEMOS D1 mini R2)](https://wiki.wemos.cc/products:d1:d1_mini)
@@ -9,7 +9,7 @@ Includes (as of February 2, 2018):
 
 ![summary](./plan_transparent.png "Summary")
 
-[CURRENT STATE](#18-02-07)
+[CURRENT STATE](#18-02-06)
 
 [TODO](#todo)
 
@@ -28,7 +28,7 @@ Includes (as of February 2, 2018):
 
 Two working solutions:
 * ESP 8266 (WEMOS D1mini) with Arduino C and Python
-* ESP 32 (LOLIN32) with ☕Espruino (JavaScript) and Node
+* ESP 32 (LOLIN32) with Espruino (JavaScript) and Node
 
 both use a Node server which acts as an IPP network printer
 
@@ -62,7 +62,7 @@ makes no difference if used Python 2.7.10 or Python 3.6.1 or PyPy 2.7.13/5.9.0
 ## January 10, 2018 by L.M. <a id="18-01-10"></a>
 
 * implemented own LPD [(Line Printer Daemon)](https://en.wikipedia.org/wiki/Line_Printer_Daemon_protocol) server which simulates a network printer
-* LPD server is written in 🐍 Python 2.7 and uses a subset of [RFC1179](http://www.rfc-editor.org/rfc/rfc1179.txt)
+* LPD server is written in Python 2.7 and uses a subset of [RFC1179](http://www.rfc-editor.org/rfc/rfc1179.txt)
 
 
 ## January 11, 2018 by L.M. <a id="18-01-11"></a>
@@ -116,17 +116,16 @@ makes no difference if used Python 2.7.10 or Python 3.6.1 or PyPy 2.7.13/5.9.0
 * changed code to oo code
 * crashes when calling destructor
 
+## February 6, 2018 by L.M. <a id="18-02-06"></a>
 
-## February 7, 2018 by L.M. <a id="18-02-07"></a>
-
-* removed constructors and destructors and made most functions static
-* updated repositorys
+* changed code to oo code
+* crashes when calling destructor
 
 ## TODO (might change)<a id="todo"></a>
 
 ### ❗ high priority️
-* measure time from ESP8266 (Arduino Code) on other devices
-* find and add possibility of automatically connecting to ESP8266 without reading IP from serial monitor
+* measure time from ESP32 (Arduino Code) on other devices
+* find and add possibility of automatically connecting to ESP32 without reading IP from serial monitor
 
 ### ❔ low priority
 * add possibility of uploading multiple sites
