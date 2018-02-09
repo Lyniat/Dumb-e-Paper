@@ -10,7 +10,7 @@ https://hci.ur.de/projects/epaper
 WIP
 
 ## Log
-
+http://paper.lyniat.games/log
 
 ## Hardware
 * [ESP 8266 (WEMOS D1 mini R2)](https://wiki.wemos.cc/products:d1:d1_mini)
