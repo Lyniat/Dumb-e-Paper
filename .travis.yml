@@ -1,0 +1,20 @@
+language: python
+python:
+    - "2.7"
+
+env:
+    - PLATFORMIO_CI_SRC=e-Paper/
+
+install:
+    - pip install -U platformio
+
+script:
+    - platformio ci --board=d1_mini
+
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GH_TOKEN
+  keep-history: true
+  on:
+    branch: gh-pages
