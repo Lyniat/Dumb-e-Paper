@@ -1,25 +1,15 @@
 #include "Tools.hpp"
 
-/**
- * @brief splits string at separator
- * 
- * source: https://stackoverflow.com/questions/9072320/split-string-into-string-array
- * 
- * @param _data 
- * @param separator 
- * @param index 
- * @return char* 
- */
-char *Tools::getValueFromString(char *_data, char separator, int index)
+char *Tools::getValueFromString(char *data, char separator, int index)
 {
-    String data = _data;
+    String _data = data;
     int found = 0;
     int strIndex[] = {0, -1};
-    int maxIndex = data.length() - 1;
+    int maxIndex = _data.length() - 1;
 
     for (int i = 0; i <= maxIndex && found <= index; i++)
     {
-        if (data.charAt(i) == separator || i == maxIndex)
+        if (_data.charAt(i) == separator || i == maxIndex)
         {
             found++;
             strIndex[0] = strIndex[1] + 1;
@@ -27,5 +17,5 @@ char *Tools::getValueFromString(char *_data, char separator, int index)
         }
     }
 
-    return strdup((found > index ? data.substring(strIndex[0], strIndex[1]) : "").c_str());
+    return strdup((found > index ? _data.substring(strIndex[0], strIndex[1]) : "").c_str());
 }

@@ -10,10 +10,6 @@ char *Beacon::nextPassword = new char[32];
 
 WiFiServer webServer(80);
 
-/**
- * @brief Hosts setup website and parses ssid and password
- * 
- */
 void Beacon::handleWebsite()
 {
     WiFiClient client = webServer.available();
@@ -80,10 +76,6 @@ void Beacon::handleWebsite()
     Serial.println("Done with client");
 }
 
-/**
- * @brief Creates MDSN respnder
- * 
- */
 void Beacon::hostWebsite()
 {
 
@@ -102,10 +94,6 @@ void Beacon::hostWebsite()
     MDNS.addService("http", "tcp", 80);
 }
 
-/**
- * @brief Called from main class to host AP
- * @return true if ssid and password are fetched from web interface
- */
 bool Beacon::hostAP()
 {
     handleWebsite();
@@ -136,17 +124,11 @@ bool Beacon::hostAP()
     return false;
 }
 
-/**
- * @return ssid from web interface
- */
 char *Beacon::getSSID()
 {
     return nextID;
 }
 
-/**
- * @return password from web interface
- */
 char *Beacon::getPassword()
 {
     return nextPassword;

@@ -11,9 +11,6 @@
 #include "Storage.hpp"
 #include "Tools.hpp"
 
-#define U16_MSB_TO_U8(u16) ((u16 >> 8) & 0xff)
-#define U16_LSB_TO_U8(u16) (u16 & 0xff)
-
 /*
  * PINS
  * https://nodemcu.readthedocs.io/en/master/en/modules/gpio/

@@ -10,8 +10,19 @@ class SPIHandler
     // SPI functions
     static void printSpiTime();
 
+    /**
+     * @brief initializes SPI
+     */
     static void init();
 
+    /**
+     * @brief Sends bytes over SPI to display
+     * 
+     * @param data command
+     * @param commandLength 
+     * @param result pointer to save result to
+     * @param resultLength expected length of result
+     */
     static void spiWrite(byte *data, char length, byte *result, char resultLength);
 
     static void spiRead(byte *data, char commandLength, byte *result, char resultLength);
@@ -19,9 +30,72 @@ class SPIHandler
     static void start();
 
     // TCM2 functions
+
+    /**
+     * @brief Uploads image data in EPD format to TCon image memory
+     * 
+     * Data needs to be divided into packets and transferred
+     * with multiple UploadImageData commands.
+     * Returns EP_FRAMEBUFFER_SLOT_OVERRUN if memory size is exceeded.
+     *
+     * If this command is used in partial update, do not include EPD header
+     * and encode data in EPD formaty type 0
+     *
+     * Use ImageEraseFrameBuffer() once before uploading image data.
+     * Update the display after you have uploaded all of your data.
+     *
+     * Command:
+     * INS:  0x20
+     * P1:   0x01
+     * P2:   slot number
+     * Lc:   data packet size (max 0xFA)
+     * Data: Lc data bytes (max 251 bytes)
+     * 
+     * @param slotNumber 
+     * @param packetSize 
+     * @param data 
+     * @return uint16_t 2-byte status code
+     */
     static uint16_t uploadImageData(byte slotNumber, byte packetSize, byte *data);
-    static uint16_t imageEraseFrameBuffer(byte slotNumber);                       // works
-    static uint16_t displayUpdate(byte updateMode = DISPLAY_UPDATE_MODE_DEFAULT); // works
+
+    /**
+     * @brief Ereases selected slot
+     * 
+     * Resets data pointer to beginning of selected memory slot index
+     * and erases selected slot.
+     * The erased slot is filled with 0xFF, which represents a black image.
+     *
+     * Command:
+     * INS: 0x20
+     * P1:  0x0E
+     * P2:  memory slot index
+     *
+     * 
+     * @param slotNumber 
+     * @return uint16_t 2-byte status code
+     */
+    static uint16_t imageEraseFrameBuffer(byte slotNumber);
+
+
+    /**
+     * @brief Updates display to show uploaded data
+     * 
+     * Starts the display refresh sequence displaying the current content of the image memory.
+     * The transition sequence is chosen by INS parameter.
+     * 
+     * Command:
+     * INS:  0x24 or 0x82: default (black -> white -> black), offers best quality
+     *       0x85: flashless direct transition without blank screen; fast and energy efficient
+     *       0x86: flashless inverted transition (inverted new image -> new image), compromise between quality and efficiency
+     * P1:   0x01
+     * P2:   memory slot index
+     * Lc:   length
+     * Data: temperature (optional)
+     * 
+     * @param updateMode 
+     * @return uint16_t 2-byte status code
+     */
+    static uint16_t displayUpdate(byte updateMode = DISPLAY_UPDATE_MODE_DEFAULT);
 
     // possible result codes
     static const uint16_t EP_SW_NORMAL_PROCESSING = 0x9000;

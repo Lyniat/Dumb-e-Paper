@@ -3,6 +3,9 @@
 
 #include "main.hpp"
 
+/**
+ * @brief Could be anything but must also be changed in python script
+ */
 const int PORT = 1516;
 
 enum class WiFiStatus
@@ -18,10 +21,27 @@ enum class WiFiStatus
 class WiFiHandler
 {
   public:
+    /**
+     * @brief Start WiFi connection
+     * 
+     * @param id ssid to connect
+     * @param password for network
+     * @return true if WiFi could connect
+     */
     static bool init(String id, String password);
 
+    /**
+     * @brief Receive data from WiFi and write to buffer
+     * 
+     * @param buffer gets WiFi data
+     * @param le buffer length
+     * @return WiFiStatus 
+     */
     static WiFiStatus handle(byte *buffer, int le);
 
+    /**
+     * @brief Sends "OK" to server, to receive new data
+     */
     static void requestDataChunk();
 
   private:

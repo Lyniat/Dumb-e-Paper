@@ -9,10 +9,6 @@ void SPIHandler::printSpiTime()
     Serial.println(spiTime);
 }
 
-/**
- * @brief initilaizes SPI
- * 
- */
 void SPIHandler::init()
 {
     // initialize SPI:
@@ -26,14 +22,6 @@ void SPIHandler::init()
     //SPI.beginTransaction (SPISettings (1000000, MSBFIRST, SPI_MODE0));
 }
 
-/**
- * @brief Sends bytes over SPI to display
- * 
- * @param data command
- * @param commandLength 
- * @param result pointer to save result to
- * @param resultLength expected length of result
- */
 void SPIHandler::spiWrite(byte *data, char commandLength, byte *result, char resultLength)
 {
     lastSpiTime = micros();
@@ -116,31 +104,6 @@ void SPIHandler::start()
     Serial.println("starting...");
 }
 
-/**
- * @brief Uploads image data in EPD format to TCon image memory
- * 
- * Data needs to be divided into packets and transferred
- * with multiple UploadImageData commands.
- * Returns EP_FRAMEBUFFER_SLOT_OVERRUN if memory size is exceeded.
- *
- * If this command is used in partial update, do not include EPD header
- * and encode data in EPD formaty type 0
- *
- * Use ImageEraseFrameBuffer() once before uploading image data.
- * Update the display after you have uploaded all of your data.
- *
- * Command:
- * INS:  0x20
- * P1:   0x01
- * P2:   slot number
- * Lc:   data packet size (max 0xFA)
- * Data: Lc data bytes (max 251 bytes)
- * 
- * @param slotNumber 
- * @param packetSize 
- * @param data 
- * @return uint16_t 2-byte status code
- */
 uint16_t SPIHandler::uploadImageData(byte slotNumber, byte packetSize, byte *data)
 {
     uint16_t result;
@@ -177,22 +140,6 @@ uint16_t SPIHandler::uploadImageData(byte slotNumber, byte packetSize, byte *dat
     return result;
 }
 
-/**
- * @brief Ereases selected slot
- * 
- * Resets data pointer to beginning of selected memory slot index
- * and erases selected slot.
- * The erased slot is filled with 0xFF, which represents a black image.
- *
- * Command:
- * INS: 0x20
- * P1:  0x0E
- * P2:  memory slot index
- *
- * 
- * @param slotNumber 
- * @return uint16_t 2-byte status code
- */
 uint16_t SPIHandler::imageEraseFrameBuffer(byte slotNumber)
 {
     uint16_t result;
@@ -212,24 +159,6 @@ uint16_t SPIHandler::imageEraseFrameBuffer(byte slotNumber)
     return result;
 }
 
-/**
- * @brief Updates display to show uploaded data
- * 
- * Starts the display refresh sequence displaying the current content of the image memory.
- * The transition sequence is chosen by INS parameter.
- * 
- * Command:
- * INS:  0x24 or 0x82: default (black -> white -> black), offers best quality
- *       0x85: flashless direct transition without blank screen; fast and energy efficient
- *       0x86: flashless inverted transition (inverted new image -> new image), compromise between quality and efficiency
- * P1:   0x01
- * P2:   memory slot index
- * Lc:   length
- * Data: temperature (optional)
- * 
- * @param updateMode 
- * @return uint16_t 2-byte status code
- */
 uint16_t SPIHandler::displayUpdate(byte updateMode)
 {
     uint16_t result;
