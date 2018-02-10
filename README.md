@@ -7,7 +7,7 @@
 https://hci.ur.de/projects/epaper
 
 ## Documentation
-WIP
+http://paper.lyniat.games/doxygen/html/
 
 ## Log
 http://paper.lyniat.games/log
