@@ -4,13 +4,13 @@
 [![HitCount](http://hits.dwyl.io/lyniat/dumb-e-paper.svg)](http://hits.dwyl.io/lyniat/dumb-e-paper)
 
 ## Project Website
-https://hci.ur.de/projects/epaper
+[Link](https://hci.ur.de/projects/epaper)
 
 ## Documentation
-http://paper.lyniat.games/doxygen/html/
+[Link](http://paper.lyniat.games/doxygen/html)
 
 ## Log
-http://paper.lyniat.games/log
+[Link](http://paper.lyniat.games/log)
 
 ## Hardware
 * [ESP 8266 (WEMOS D1 mini R2)](https://wiki.wemos.cc/products:d1:d1_mini)
