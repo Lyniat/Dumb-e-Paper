@@ -9,7 +9,7 @@ Includes (as of February 2, 2018):
 
 ![summary](./plan_transparent.png "Summary")
 
-[CURRENT STATE](#18-02-06)
+[CURRENT STATE](#18-02-28)
 
 [TODO](#todo)
 
@@ -120,6 +120,18 @@ makes no difference if used Python 2.7.10 or Python 3.6.1 or PyPy 2.7.13/5.9.0
 
 * changed code to oo code
 * crashes when calling destructor
+
+## February 12, 2018 by L.M. <a id="18-02-12"></a>
+
+* changed some classes to static ones
+
+## February 18, 2018 by L.M. <a id="18-02-18"></a>
+
+* cleaned up and documented C++ code
+
+## February 28, 2018 by L.M. <a id="18-02-28"></a>
+
+* cleaned up and documented Python code
 
 ## TODO (might change)<a id="todo"></a>
 
