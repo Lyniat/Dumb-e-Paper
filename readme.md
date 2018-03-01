@@ -4,13 +4,13 @@
 [![HitCount](http://hits.dwyl.io/lyniat/dumb-e-paper.svg)](http://hits.dwyl.io/lyniat/dumb-e-paper)
 
 ## Project Website
-[Link](https://hci.ur.de/projects/epaper)
+https://hci.ur.de/projects/epaper
 
 ## Documentation
-[Link](http://paper.lyniat.games/doxygen/html)
+http://paper.lyniat.games/doxygen/html/
 
 ## Log
-[Link](http://paper.lyniat.games/log)
+http://paper.lyniat.games/log
 
 ## Hardware
 * [ESP 8266 (WEMOS D1 mini R2)](https://wiki.wemos.cc/products:d1:d1_mini)
@@ -22,7 +22,11 @@
 * Python 2
 
 #### Building
-* [PlatformIO](http://platformio.org)
+with [PlatformIO](http://platformio.org)
+
+1. [Download](https://platformio.org/platformio-ide) and install PlatformIO
+2. [Download](https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers) and install the ESP8266 USB driver
+3. Build and upload
 
 ## License
 * MIT
