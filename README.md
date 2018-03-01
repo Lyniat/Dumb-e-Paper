@@ -22,7 +22,11 @@ http://paper.lyniat.games/log
 * Python 2
 
 #### Building
-* [PlatformIO](http://platformio.org)
+with [PlatformIO](http://platformio.org)
+
+1. [Download](https://platformio.org/platformio-ide) and install PlatformIO
+2. [Download](https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers) and install the ESP8266 USB driver
+3. Build and upload
 
 ## License
 * MIT
