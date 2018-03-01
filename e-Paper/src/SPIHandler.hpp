@@ -1,6 +1,13 @@
 #ifndef __SPIHANDLER_H_INCLUDED__
 #define __SPIHANDLER_H_INCLUDED__
 
+/**
+ * @defgroup SPI Handler
+ */
+
+/** @addtogroup SPI Handler */
+/*@{*/
+
 #include <SPI.h>
 #include "main.hpp"
 
@@ -125,4 +132,5 @@ class SPIHandler
     static long lastSpiTime;
 };
 
+/*@}*/
 #endif

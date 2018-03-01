@@ -1,6 +1,13 @@
 #ifndef __WIFIHANDLER_H_INCLUDED__
 #define __WIFIHANDLER_H_INCLUDED__
 
+/**
+ * @defgroup WiFi Handler
+ */
+
+/** @addtogroup WiFi Handler */
+/*@{*/
+
 #include "main.hpp"
 
 /**
@@ -51,4 +58,5 @@ class WiFiHandler
     static char *ip;
 };
 
+/*@}*/
 #endif

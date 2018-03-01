@@ -1,6 +1,13 @@
 #ifndef __TOOLS_H_INCLUDED__
 #define __TOOLS_H_INCLUDED__
 
+/**
+ * @defgroup Tools
+ */
+
+/** @addtogroup Tools */
+/*@{*/
+
 #include "main.hpp"
 
 class Tools
@@ -21,4 +28,5 @@ class Tools
     static char *getValueFromString(char *data, char separator, int index);
 };
 
+/*@}*/
 #endif

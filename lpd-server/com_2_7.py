@@ -1,13 +1,13 @@
 import sys
 import socket
-import struct
 import time
-import os.path
 from PIL import Image
 import json
-from thread import start_new_thread
 
 
+'''
+    ESP_socket class handles the socket connection with ESP8266
+'''
 class ESP_Socket:
 
     ANSWER = "OK"
@@ -45,7 +45,9 @@ class ESP_Socket:
                     print "send next chunk!"
                     break
 
-
+'''
+    handles communication with ESP8266 and creates sockets
+'''
 class Communicator:
 
     def __init__(self,filename):
@@ -155,6 +157,10 @@ class Communicator:
         print (time.time() - starttime)
 
 
+'''
+    entry point for this file
+    creates Communicator
+'''
 def upload(file):
     Communicator(file)
 

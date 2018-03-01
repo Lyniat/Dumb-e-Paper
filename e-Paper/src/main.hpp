@@ -1,6 +1,13 @@
 #ifndef __MAIN_H_INCLUDED__
 #define __MAIN_H_INCLUDED__
 
+/**
+ * @defgroup Main
+ */
+
+/** @addtogroup Main */
+/*@{*/
+
 #include <Arduino.h>
 #include "main.hpp"
 #include "SPIHandler.hpp"
@@ -30,4 +37,5 @@ void uploadChunk(byte *data, int length);
 
 void waitForTCM();
 
+/*@}*/
 #endif

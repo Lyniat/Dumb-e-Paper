@@ -1,6 +1,13 @@
 #ifndef __WEBSITE_H_INCLUDED__
 #define __WEBSITE_H_INCLUDED__
 
+/**
+ * @defgroup Website
+ */
+
+/** @addtogroup Website */
+/*@{*/
+
 #include "main.hpp"
 
 namespace Website
@@ -13,4 +20,5 @@ const String WEBSITE = R"(
 )";
 }
 
+/*@}*/
 #endif

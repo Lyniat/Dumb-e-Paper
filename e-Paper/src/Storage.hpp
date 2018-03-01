@@ -1,6 +1,13 @@
 #ifndef __STORAGE_H_INCLUDED__
 #define __STORAGE_H_INCLUDED__
 
+/**
+ * @defgroup Storage
+ */
+
+/** @addtogroup Storage */
+/*@{*/
+
 #include <EEPROM.h>
 #include "main.hpp"
 
@@ -34,4 +41,5 @@ class Storage
     static char *password;
 };
 
+/*@}*/
 #endif

@@ -1,6 +1,13 @@
 #ifndef __MAINSTATES_H_INCLUDED__
 #define __MAINSTATES_H_INCLUDED__
 
+/**
+ * @defgroup Main States
+ */
+
+/** @addtogroup Main States */
+/*@{*/
+
 enum class MAIN_STATE
 {
     STATE_WAITING,
@@ -10,4 +17,5 @@ enum class MAIN_STATE
     STATE_NVS
 };
 
+/*@}*/
 #endif

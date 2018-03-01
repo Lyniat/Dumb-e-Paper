@@ -1,6 +1,13 @@
 #ifndef __BEACON_H_INCLUDED__
 #define __BEACON_H_INCLUDED__
 
+/**
+ * @defgroup Beacon
+ */
+
+/** @addtogroup Beacon */
+/*@{*/
+
 #include "main.hpp"
 #include "Website.hpp"
 #include <ESP8266WiFi.h>
@@ -46,4 +53,5 @@ class Beacon
     static char *nextPassword;
 };
 
+/*@}*/
 #endif

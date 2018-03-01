@@ -1,6 +1,13 @@
 #ifndef __LED_H_INCLUDED__
 #define __LED_H_INCLUDED__
 
+/**
+ * @defgroup LED
+ */
+
+/** @addtogroup LED */
+/*@{*/
+
 #include "main.hpp"
 
 class LED
@@ -15,4 +22,5 @@ class LED
     static void setOnlyBlue();
 };
 
+/*@}*/
 #endif

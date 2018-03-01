@@ -30,6 +30,9 @@ class Server:
 
     waiting = False
 
+    '''
+        load configuration file which can also be configured for your needs
+    '''
     def loadConf(self):
         try:
             conf = json.load(open(self.CONF_FILE))
@@ -47,12 +50,17 @@ class Server:
             print "FAILED LOADING CONFIGURATION FILE"
             sys.exit()
 
+    '''
+        the postscript driver writes "%%BoundingBox:" with values to the end of the file
+        but PIL can not convert the ps document if "%%BoundingBox:" has no values at the beginning
+        this fix writes the values from the last "%%BoundingBox:" to the first one
+    '''
     def fixBoundingBox(self):
         #read file
         with open(self.TEMP_FILE, 'r') as file:
             content = file.read()
 
-        #chnage bounding box
+        #change bounding box
         lines = content.split("\n")
 
         beginning = 0
@@ -87,6 +95,9 @@ class Server:
         f.write(changed)
         f.close()
 
+    '''
+        converts ps file to png and sends image to upload script
+    '''
     def convert(self):
         print("fixing image")
         self.fixBoundingBox() #PIL has problem with eps bounding box if not fixed
@@ -106,6 +117,10 @@ class Server:
 
 
         com_2_7.upload(self.CONVERTED_FILE)
+
+    '''
+        hosts the server which simulates an lpd printer
+    '''
 
     def host(self):
         print("started server")
@@ -171,6 +186,9 @@ class Server:
         except OSError:
             pass
 
+    '''
+        starts and hosts the zeroconf service and restarts if it crashes
+    '''
     def hostZeroConf(self):
         while(True):
             try:
@@ -179,7 +197,10 @@ class Server:
                 print("Zeroconf failed. Starting again")
             yield
 
-
+    '''
+        host zeroconf service, so that printer can be found in network
+        see: https://en.wikipedia.org/wiki/Zero-configuration_networking
+    '''
     def zeroConf(self):
         print("starting zeroconf")
         logging.basicConfig(level=logging.DEBUG)
@@ -196,6 +217,11 @@ class Server:
         print("zeroconf registered device")
 
 
+'''
+    program entry point
+    starts lpd socket
+    and zeroconf server in a new thread
+'''
 if __name__ == '__main__':
     print("started application")
 
