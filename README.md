@@ -20,7 +20,7 @@ http://paper.lyniat.games/log
 
 ## Software
 #### Execution
-* Python 2
+* Python 2.7
 
 #### Building
 with [PlatformIO](http://platformio.org)
