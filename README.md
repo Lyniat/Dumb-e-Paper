@@ -7,8 +7,8 @@
 https://hci.ur.de/projects/epaper
 
 ## Documentation
-[Software](http://paper.lyniat.games/doxygen/html)
-[Hardware](http://paper.lyniat.games/docu/sketch)
+* [Software](http://paper.lyniat.games/doxygen/html)
+* [Hardware](http://paper.lyniat.games/docu/sketch)
 
 ## Log
 http://paper.lyniat.games/log
