@@ -7,8 +7,8 @@
 https://hci.ur.de/projects/epaper
 
 ## Documentation
-[Software](http://paper.lyniat.games/doxygen/html)
-[Hardware](http://paper.lyniat.games/docu/sketch)
+* [Software](http://paper.lyniat.games/doxygen/html)
+* [Hardware](http://paper.lyniat.games/docu/sketch)
 
 ## Log
 http://paper.lyniat.games/log
@@ -20,7 +20,7 @@ http://paper.lyniat.games/log
 
 ## Software
 #### Execution
-* Python 2
+* Python 2.7
 
 #### Building
 with [PlatformIO](http://platformio.org)
