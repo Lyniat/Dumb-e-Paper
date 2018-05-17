@@ -1,0 +1,33 @@
+// Include standard font and media definitions
+#include <font.defs>
+#include <media.defs>
+
+#media "1024x1280" 461 576
+#media "1024x2560" 461 1152
+#media "1024x3840" 461 1728
+#media "1024x5120" 461 2304
+
+// List the fonts that are supported, in this case all standard fonts...
+Font *
+
+// Manufacturer, model name, and version
+Manufacturer "Laurin Muth, UR, University of Regensburg"
+ModelName "Thermo-Printer"
+Version 1.0
+
+// PostScript printer attributes
+Attribute DefaultColorSpace "" Gray
+Attribute LandscapeOrientation "" Minus90
+Attribute LanguageLevel "" "3"
+Attribute Product "" "(Thermo-Printer)"
+Attribute PSVersion "" "(3010) 0"
+Attribute TTRasterizer "" Type42
+
+// Supported page sizes
+*MediaSize "1024x1280"
+*MediaSize "1024x2560"
+*MediaSize "1024x3840"
+*MediaSize "1024x5120"
+
+// Specify the name of the PPD file we want to generate...
+PCFileName "thermo-printer.ppd"
