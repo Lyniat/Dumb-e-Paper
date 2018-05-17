@@ -10,6 +10,8 @@ import sys
 from PIL import Image, ImageFile
 from thread import start_new_thread
 import json
+import commands
+import get_ip
 
 import com_2_7
 
@@ -224,6 +226,16 @@ class Server:
 '''
 if __name__ == '__main__':
     print("started application")
+
+    print("fetching esp ip")
+
+    '''
+        get ip from raspberry and save to config
+    '''
+    values = commands.getstatusoutput('sh get-ip.sh')
+    ip = values[1]
+    print (ip)
+    get_ip.change_ip(ip)
 
     server = Server()
 
