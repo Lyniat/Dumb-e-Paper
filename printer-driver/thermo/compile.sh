@@ -1,1 +1,0 @@
-ppdc e-paper.drv
