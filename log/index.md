@@ -133,6 +133,19 @@ makes no difference if used Python 2.7.10 or Python 3.6.1 or PyPy 2.7.13/5.9.0
 
 * cleaned up and documented Python code
 
+## March 27, 2018 by L.M. <a id="18-03-27"></a>
+
+* tested scripts on Raspberry Pi successfully
+
+## April 24, 2018 by L.M. <a id="18-04-24"></a>
+
+* added reset button
+
+## May 17, 2018 by L.M. <a id="18-05-17"></a>
+
+* added get-ip.sh script to get the E-Papers ip automatically
+
+
 ## TODO (might change)<a id="todo"></a>
 
 ### ❗ high priority️
