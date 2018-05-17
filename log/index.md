@@ -9,7 +9,7 @@ Includes (as of February 2, 2018):
 
 ![summary](./plan_transparent.png "Summary")
 
-[CURRENT STATE](#18-02-28)
+[CURRENT STATE](#18-05-17)
 
 [TODO](#todo)
 
@@ -150,15 +150,12 @@ makes no difference if used Python 2.7.10 or Python 3.6.1 or PyPy 2.7.13/5.9.0
 
 ### ❗ high priority️
 * measure time from ESP32 (Arduino Code) on other devices
-* find and add possibility of automatically connecting to ESP32 without reading IP from serial monitor
 
 ### ❔ low priority
 * add possibility of uploading multiple sites
 * add buttons
 * add battery
 * add case
-* cleanup code (Arduino and Python)
-
 
 ### 🔍 evaluation
 * time difference with other e-reader and real paper printer
