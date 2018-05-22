@@ -120,7 +120,7 @@ class Communicator:
             print "Error: Unsupported file format!"
             return
 
-        print("time for decoding image: %d" % (time.time() - starttime))
+        print("time for decoding image: "+str(time.time() - starttime))
 
         print format(len(data), "#08x")
 
@@ -138,8 +138,6 @@ class Communicator:
         j = 0
 
         print "start sending..."
-        print (time.time() - starttime)
-        laptime = time.time()
 
         print "send data"
         for chunk in dataChunks:
@@ -150,11 +148,7 @@ class Communicator:
             sock.send(chunk, 1)
             sock.disconnect()
 
-            print (time.time() - laptime)
-            laptime = time.time()
-
         print "finished"
-        print (time.time() - starttime)
 
 
 '''

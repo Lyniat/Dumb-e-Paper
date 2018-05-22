@@ -32,6 +32,8 @@ class Server:
 
     waiting = False
 
+    startTime = -1
+
     '''
         load configuration file which can also be configured for your needs
     '''
@@ -101,6 +103,7 @@ class Server:
         converts ps file to png and sends image to upload script
     '''
     def convert(self):
+        timeBeforeConversion = time.time()
         print("fixing image")
         self.fixBoundingBox() #PIL has problem with eps bounding box if not fixed
         print("starting converting image")
@@ -115,16 +118,27 @@ class Server:
             pass
 
         print("finished converting image")
-        #sys.exit()
 
+        deltaConversion = time.time() - timeBeforeConversion
+        print ("took " + str(deltaConversion) + " seconds for converting image")
 
+        timeBeforeUpload = time.time()
         com_2_7.upload(self.CONVERTED_FILE)
+        deltaUpload = time.time() - timeBeforeUpload
+        print ("took " + str(deltaUpload) + " seconds for uploading and decoding image")
+
+        print ("UPLOADED SUCCESSFULLY!")
+        delta = time.time() - self.startTime
+        print ("took "+str(delta)+" seconds for whole process")
+        self.startTime = -1
 
     '''
         hosts the server which simulates an lpd printer
     '''
 
     def host(self):
+        sendingTime = -1
+        global resetTime
         print("started server")
         try:
             os.remove(self.TEMP_FILE)
@@ -148,14 +162,18 @@ class Server:
             try:
                 data = conn.recv(PACKET_SIZE)
 
-                print ("count: "+str(count))
+                #print ("count: "+str(count))
 
                 if not data:
-                    #break
-                    #print("no data")
                     time.sleep(0.001)
                 else:
-                    print ("from connected  user with length "+str(len(data)))
+                    resetTime = time.time()
+                    if sendingTime < 0:
+                        sendingTime = time.time()
+                    #start measuring time
+                    if self.startTime < 0:
+                        self.startTime = time.time()
+                    #print ("from connected  user with length "+str(len(data)))
                     if count >= 4:
                         f = open(self.TEMP_FILE, 'ab')
                         f.write(data.encode())
@@ -164,12 +182,10 @@ class Server:
                         if len(data) != PACKET_SIZE: #chance 1/PACKET_SIZE to fail
                             conn.sendall(ZERO)
                             conn.close()
-                        #toFile(data)
                     else:
                         print (data)
                         time.sleep(0.5)
                         conn.sendall(ZERO)
-                    #time.sleep(1)
 
                     count += 1
             except:
@@ -179,6 +195,8 @@ class Server:
 
 
         try:
+            deltaSending = time.time() - sendingTime
+            print("receiving data from CUPS took "+str(deltaSending))
             self.convert()
         except:
             print("\n\nUPLOAD FAILED!\n")
@@ -205,20 +223,21 @@ class Server:
     '''
     def zeroConf(self):
         print("starting zeroconf")
-        logging.basicConfig(level=logging.DEBUG)
+        #logging.basicConfig(level=logging.DEBUG)
 
         desc = {}
 
         info = ServiceInfo("_printer._tcp.local.",
                            "e-Paper._printer._tcp.local.",
                            socket.inet_aton(self.PRINTER_IP), self.PRINTER_PORT, 0, 0,
-                           desc, "ash-2.local.")
+                           desc, "lpd.local.")
 
         zeroconf = Zeroconf()
         zeroconf.register_service(info)
         print("zeroconf registered device")
 
 
+resetTime = -1
 '''
     program entry point
     starts lpd socket
@@ -243,9 +262,20 @@ if __name__ == '__main__':
 
     start_new_thread(server.zeroConf,())
 
+    global resetTime
+
     while True:
-        if server.waiting == False:
-            #try:
-                server.host()
-           # except:
-               # print("LPD Server failed. Starting again")
+        try:
+            if resetTime > 0:
+                if time.time() - resetTime > 30: #max waiting time
+                    print("printing takes too long. probably something did not work as intended. script restarts now!")
+                    raise Exception('took too long!')
+            if server.waiting is False:
+                #try:
+                    server.host()
+               # except:
+                   # print("LPD Server failed. Starting again")
+        except Exception as err:
+            print("Exception: "+str(err))
+            print("starting server again")
+            resetTime = -1
