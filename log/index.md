@@ -145,19 +145,21 @@ makes no difference if used Python 2.7.10 or Python 3.6.1 or PyPy 2.7.13/5.9.0
 
 * added get-ip.sh script to get the E-Papers ip automatically
 
+## June 4, 2018 by L.M. <a id="18-06-04"></a>
+
+* added battery
+
 
 ## TODO (might change)<a id="todo"></a>
 
 ### ❗ high priority️
-* measure time from ESP32 (Arduino Code) on other devices
+---
 
 ### ❔ low priority
 * add possibility of uploading multiple sites
 * add buttons
-* add battery
 * add case
 
 ### 🔍 evaluation
-* time difference with other e-reader and real paper printer
-
+---
 
