@@ -10,6 +10,7 @@ char *Beacon::nextPassword = new char[32];
 
 WiFiServer webServer(80);
 
+// code partially taken from https://github.com/nhatuan84/esp32-webserver
 void Beacon::handleWebsite()
 {
     WiFiClient client = webServer.available();
@@ -22,18 +23,12 @@ void Beacon::handleWebsite()
     if (client)
     {
         Serial.println("new client");
-        // as long as client is connected
         while (client.connected())
         {
             if (client.available())
             {
-                /* request end with '\r' -> this is HTTP protocol format */
                 String req = client.readStringUntil('\r');
-                /* First line of HTTP request is "GET / HTTP/1.1"
-                  here "GET /" is a request to get the first page at root "/"
-                  "HTTP/1.1" is HTTP version 1.1
-                */
-                /* now we parse the request to see which page the client want */
+                
                 int addr_start = req.indexOf(' ');
                 int addr_end = req.indexOf(' ', addr_start + 1);
                 if (addr_start == -1 || addr_end == -1)
@@ -48,7 +43,6 @@ void Beacon::handleWebsite()
                 client.flush();
 
                 String s;
-                /* if request is "/" then client request the first page at root "/" -> we process this by return "Hello world"*/
                 if (req == "/")
                 {
                     s = Website::WEBSITE;
@@ -67,7 +61,6 @@ void Beacon::handleWebsite()
 
                     nextPassword = Tools::getValueFromString(pwd, '=', 1);
                 }
-                /* send response back to client and then close connect since HTTP do not keep connection*/
                 client.print(s);
                 client.stop();
             }
