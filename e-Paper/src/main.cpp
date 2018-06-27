@@ -104,6 +104,8 @@ void setup()
 
     SPIHandler::start();
 
+    //SPIHandler::displayUpdate(0x86);
+
     delay(1000);
 }
 
@@ -135,8 +137,8 @@ void loop()
     {
     case MAIN_STATE ::STATE_NVS: // read flash
         // try to read "ssid" and "password" from flash
-        ssid = Storage::readSSID();
-        password = Storage::readPassword();
+        ssid = "pipipi";//Storage::readSSID();
+        password = "mintmintmint";//Storage::readPassword();
         // try to connect them. if valid, true will be returned
         //success = true;//
         success = WiFiHandler::init(ssid, password);
@@ -167,7 +169,7 @@ void loop()
                 if (success)
                 {
                     receiveState = MAIN_STATE ::STATE_WAITING;
-                    Storage::write(ssid, password);
+                    //Storage::write(ssid, password);
                 }
             }
         }

@@ -8,12 +8,14 @@
 /** @addtogroup Storage */
 /*@{*/
 
-#include <EEPROM.h>
-#include "main.hpp"
+//#include <EEPROM.h>
+//#include "main.hpp"
 
 /**
  * @brief Reads and writes SSID and password from / to flash
  */
+
+
 class Storage
 {
   public:

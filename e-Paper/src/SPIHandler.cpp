@@ -106,7 +106,7 @@ void SPIHandler::start()
 
 uint16_t SPIHandler::uploadImageData(byte slotNumber, byte packetSize, byte *data)
 {
-    uint16_t result;
+    uint16_t result = 0;
     byte params[4] = {0x20, 0x01, slotNumber, packetSize};
     byte *input;
     char resultLength = 2;

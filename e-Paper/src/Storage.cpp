@@ -2,7 +2,7 @@
 
 char *Storage::ssid = new char[32];
 char *Storage::password = new char[32];
-
+/*
 void Storage::read()
 {
     EEPROM.begin(512);
@@ -41,3 +41,5 @@ char *Storage::readPassword()
     read();
     return password;
 }
+
+*/

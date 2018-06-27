@@ -8,14 +8,14 @@
 /** @addtogroup Main */
 /*@{*/
 
-#include <Arduino.h>
+#include <M5Stack.h>
 #include "main.hpp"
 #include "SPIHandler.hpp"
 #include "WiFiHandler.hpp"
 #include "Beacon.hpp"
 #include "MainStates.hpp"
 #include "LED.hpp"
-#include "Storage.hpp"
+//#include "Storage.hpp"
 #include "Tools.hpp"
 
 /*
@@ -24,14 +24,14 @@
  */
 
 // esp-8266 pins
-const uint8_t PIN_EN = 5;   // D1
-const uint8_t PIN_BUSY = 4; // D2
-const uint8_t PIN_CS = 2;   // D4
+const uint8_t PIN_EN = 21;
+const uint8_t PIN_BUSY = 22;
+const uint8_t PIN_CS = 2;
 
 // esp-8266 leds
-const uint8_t PIN_RED = 16;   // D0
-const uint8_t PIN_BLUE = 15;  // D8
-const uint8_t PIN_YELLOW = 0; // D3
+const uint8_t PIN_RED = 3;
+const uint8_t PIN_BLUE = 1;
+const uint8_t PIN_YELLOW = 16;
 
 void uploadChunk(byte *data, int length);
 

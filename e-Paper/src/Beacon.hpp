@@ -10,9 +10,9 @@
 
 #include "main.hpp"
 #include "Website.hpp"
-#include <ESP8266WiFi.h>
+#include <WiFi.h>
 
-#include <ESP8266mDNS.h>
+#include <ESPmDNS.h>
 
 /**
  * @brief Hosts setup website and parses ssid and password
