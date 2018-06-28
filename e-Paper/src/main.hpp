@@ -15,7 +15,7 @@
 #include "Beacon.hpp"
 #include "MainStates.hpp"
 #include "LED.hpp"
-//#include "Storage.hpp"
+#include "Storage.hpp"
 #include "Tools.hpp"
 
 /*

@@ -97,12 +97,16 @@ void setup()
     pinMode(PIN_BLUE, OUTPUT);
     pinMode(PIN_YELLOW, OUTPUT);
 
+    WiFi.mode(WIFI_STA);
+
     SPIHandler::init();
 
     Serial.begin(9600);
     delay(1000);
 
     SPIHandler::start();
+
+    Storage::init();
 
     //SPIHandler::displayUpdate(0x86);
 
@@ -137,8 +141,8 @@ void loop()
     {
     case MAIN_STATE ::STATE_NVS: // read flash
         // try to read "ssid" and "password" from flash
-        ssid = "pipipi";//Storage::readSSID();
-        password = "mintmintmint";//Storage::readPassword();
+        ssid = Storage::readSSID();
+        password = Storage::readPassword();
         // try to connect them. if valid, true will be returned
         //success = true;//
         success = WiFiHandler::init(ssid, password);
@@ -169,7 +173,7 @@ void loop()
                 if (success)
                 {
                     receiveState = MAIN_STATE ::STATE_WAITING;
-                    //Storage::write(ssid, password);
+                    Storage::write(ssid, password);
                 }
             }
         }

@@ -10,6 +10,7 @@ char *WiFiHandler::ip = (char *)"";
 
 bool WiFiHandler::init(String ssid, String password)
 {
+    WiFi.mode(WIFI_STA);
     Serial.println(ssid);
     Serial.println(password);
 
