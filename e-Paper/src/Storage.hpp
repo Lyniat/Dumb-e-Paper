@@ -12,6 +12,7 @@
 #include "main.hpp"
 #include "nvs_flash.h"
 #include "nvs.h"
+#include <String.h>
 
 /**
  * @brief Reads and writes SSID and password from / to flash

@@ -33,31 +33,18 @@ void Storage::read()
     } else {
         printf("Done\n");
 
-        err = nvs_get_str(my_handle, "ssid", ssid, &size);
-        switch (err) {
-            case ESP_OK:
-                printf("Done\n");
-                printf("Restart counter = %d\n", ssid);
-                break;
-            case ESP_ERR_NVS_NOT_FOUND:
-                printf("The value is not initialized yet!\n");
-                break;
-            default :
-                printf("Error (%s) reading!\n", esp_err_to_name(err));
-        }
+        size_t required_size_ssid;
+        size_t required_size_password;
+        nvs_get_str(my_handle, "ssid", NULL, &required_size_ssid);
+        ssid = (char*) malloc(required_size_ssid);
+        nvs_get_str(my_handle, "ssid", ssid, &required_size_ssid);
 
-        err = nvs_get_str(my_handle, "password", password, &size);
-        switch (err) {
-            case ESP_OK:
-                printf("Done\n");
-                printf("Restart counter = %d\n", password);
-                break;
-            case ESP_ERR_NVS_NOT_FOUND:
-                printf("The value is not initialized yet!\n");
-                break;
-            default :
-                printf("Error (%s) reading!\n", esp_err_to_name(err));
-        }
+        nvs_get_str(my_handle, "password", NULL, &required_size_password);
+        password = (char*) malloc(required_size_password);
+        nvs_get_str(my_handle, "password", password, &required_size_password);
+
+        Serial.println(ssid);
+        Serial.println(password);
     }
 
     nvs_close(my_handle);
@@ -65,7 +52,9 @@ void Storage::read()
 
 void Storage::write(char *ssid, char *password)
 {
-    printf("\n");
+
+    Serial.println(Storage::ssid);
+
     printf("Opening Non-Volatile Storage (NVS) handle... ");
     nvs_handle my_handle;
     err = nvs_open("storage", NVS_READWRITE, &my_handle);
@@ -77,14 +66,13 @@ void Storage::write(char *ssid, char *password)
         err = nvs_set_str(my_handle, "ssid", ssid);
         printf((err != ESP_OK) ? "Failed!\n" : "Done\n");
 
+        printf("Committing updates in NVS ... ");
+        err = nvs_commit(my_handle);
+        printf((err != ESP_OK) ? "Failed!\n" : "Done\n");
+
         err = nvs_set_str(my_handle, "password", password);
         printf((err != ESP_OK) ? "Failed!\n" : "Done\n");
 
-
-        // Commit written value.
-        // After setting any values, nvs_commit() must be called to ensure changes are written
-        // to flash storage. Implementations may write to storage at other times,
-        // but this is not guaranteed.
         printf("Committing updates in NVS ... ");
         err = nvs_commit(my_handle);
         printf((err != ESP_OK) ? "Failed!\n" : "Done\n");
