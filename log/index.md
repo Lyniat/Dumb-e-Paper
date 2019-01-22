@@ -9,7 +9,7 @@ Includes (as of February 2, 2018):
 
 ![summary](./plan_transparent.png "Summary")
 
-[CURRENT STATE](#18-05-17)
+[CURRENT STATE](#19-01-22)
 
 [TODO](#todo)
 
@@ -148,6 +148,11 @@ makes no difference if used Python 2.7.10 or Python 3.6.1 or PyPy 2.7.13/5.9.0
 ## June 4, 2018 by L.M. <a id="18-06-04"></a>
 
 * added battery
+
+## January 22, 2019 by L.M. <a id="19-01-22"></a>
+
+* updated ESP32 core to 1.0.1
+* this fixed slow TCP connection, so LOLIN D32 PRO will be used for future development
 
 
 ## TODO (might change)<a id="todo"></a>
