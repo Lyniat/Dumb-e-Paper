@@ -8,15 +8,21 @@
 /** @addtogroup Storage */
 /*@{*/
 
-#include <EEPROM.h>
+//#include <EEPROM.h>
 #include "main.hpp"
+#include "nvs_flash.h"
+#include "nvs.h"
+#include <String.h>
 
 /**
  * @brief Reads and writes SSID and password from / to flash
  */
+
+
 class Storage
 {
   public:
+    static void init();
     /**
      * @brief Writes SSID and password to flash
      * 

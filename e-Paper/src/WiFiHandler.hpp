@@ -9,6 +9,7 @@
 /*@{*/
 
 #include "main.hpp"
+#include <WiFi.h>
 
 /**
  * @brief Could be anything but must also be changed in python script

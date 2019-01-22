@@ -19,52 +19,50 @@ void Beacon::handleWebsite()
         return;
     }
     Serial.println("");
-    Serial.println("New client");
     if (client)
     {
+        bool looping = true;
         Serial.println("new client");
-        while (client.connected())
+        while (true)
         {
-            if (client.available())
+            String req = client.readStringUntil('\r');
+            
+            int addr_start = req.indexOf(' ');
+            int addr_end = req.indexOf(' ', addr_start + 1);
+            if (addr_start == -1 || addr_end == -1)
             {
-                String req = client.readStringUntil('\r');
-                
-                int addr_start = req.indexOf(' ');
-                int addr_end = req.indexOf(' ', addr_start + 1);
-                if (addr_start == -1 || addr_end == -1)
-                {
-                    Serial.print("Invalid request: ");
-                    Serial.println(req);
-                    return;
-                }
-                req = req.substring(addr_start + 1, addr_end);
-                Serial.print("Request: ");
+                Serial.print("Invalid request: ");
                 Serial.println(req);
-                client.flush();
-
-                String s;
-                if (req == "/")
-                {
-                    s = Website::WEBSITE;
-                    Serial.println("Sending 200");
-                }
-                else
-                {
-                    char *request = Tools::getValueFromString(strdup(req.c_str()), '?', 1);
-                    Serial.println(request);
-
-                    char *ssid = Tools::getValueFromString(request, '&', 0);
-
-                    char *pwd = Tools::getValueFromString(request, '&', 1);
-
-                    nextID = Tools::getValueFromString(ssid, '=', 1);
-
-                    nextPassword = Tools::getValueFromString(pwd, '=', 1);
-                }
-                client.print(s);
-                client.stop();
+                return;
             }
+            req = req.substring(addr_start + 1, addr_end);
+            Serial.print("Request: ");
+            Serial.println(req);
+            client.flush();
+
+            String s;
+            if (req == "/")
+            {
+                s = Website::WEBSITE;
+                Serial.println("Sending 200");
+            }
+            else
+            {
+                char *request = Tools::getValueFromString(strdup(req.c_str()), '?', 1);
+                Serial.println(request);
+
+                char *ssid = Tools::getValueFromString(request, '&', 0);
+
+                char *pwd = Tools::getValueFromString(request, '&', 1);
+
+                nextID = Tools::getValueFromString(ssid, '=', 1);
+
+                nextPassword = Tools::getValueFromString(pwd, '=', 1);
+
+            }
+            client.print(s);
         }
+        client.stop();
     }
     Serial.println("Done with client");
 }
@@ -89,6 +87,8 @@ void Beacon::hostWebsite()
 
 bool Beacon::hostAP()
 {
+    nextID = "";
+    nextPassword = "";
     handleWebsite();
 
     if (hosting)

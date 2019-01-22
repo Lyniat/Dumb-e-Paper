@@ -24,14 +24,14 @@
  */
 
 // esp-8266 pins
-const uint8_t PIN_EN = 5;   // D1
-const uint8_t PIN_BUSY = 4; // D2
-const uint8_t PIN_CS = 2;   // D4
+const uint8_t PIN_EN = 2;
+const uint8_t PIN_BUSY = 15;
+const uint8_t PIN_CS = 0;
 
 // esp-8266 leds
-const uint8_t PIN_RED = 16;   // D0
-const uint8_t PIN_BLUE = 15;  // D8
-const uint8_t PIN_YELLOW = 0; // D3
+const uint8_t PIN_RED = 3;
+const uint8_t PIN_BLUE = 1;
+const uint8_t PIN_YELLOW = 16;
 
 void uploadChunk(byte *data, int length);
 

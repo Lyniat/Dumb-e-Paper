@@ -1,6 +1,20 @@
 {
     "terminal.integrated.env.osx": {
-        "PATH": "/Users/laurin/.platformio/penv/bin:/Users/laurin/.platformio/penv:/Library/Frameworks/Python.framework/Versions/3.6/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/Xamarin Workbooks.app/Contents/SharedSupport/path-bin",
+        "PATH": "/Users/laurin/.platformio/penv/bin:/Users/laurin/.platformio/penv:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/Xamarin Workbooks.app/Contents/SharedSupport/path-bin",
+        "PLATFORMIO_CALLER": "vscode"
+    },
+    "files.associations": {
+        "array": "cpp",
+        "initializer_list": "cpp",
+        "utility": "cpp",
+        "*.tcc": "cpp",
+        "deque": "cpp",
+        "unordered_map": "cpp",
+        "unordered_set": "cpp",
+        "vector": "cpp"
+    },
+    "terminal.integrated.env.windows": {
+        "PATH": "C:\\Users\\Lenni Lenardo\\.platformio\\penv\\Scripts;C:\\Users\\Lenni Lenardo\\.platformio\\penv;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\Git\\cmd;C:\\Users\\Lenni Lenardo\\AppData\\Local\\Microsoft\\WindowsApps;;C:\\Users\\Lenni Lenardo\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\Git\\cmd;C:\\Users\\Lenni Lenardo\\AppData\\Local\\Microsoft\\WindowsApps;;C:\\Users\\Lenni Lenardo\\AppData\\Local\\Programs\\Microsoft VS Code\\bin",
         "PLATFORMIO_CALLER": "vscode"
     }
 }

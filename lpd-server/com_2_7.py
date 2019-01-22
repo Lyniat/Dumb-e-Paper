@@ -17,7 +17,7 @@ class ESP_Socket:
         self.commandHeader = [0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x05, 0x00, 0x04, 0x00, 0x00, 0x02, 0x80, 0x19]
 
         if sock is None:
-            self.sock = socket.socket()
+            self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         else:
             self.sock = sock
 
@@ -51,6 +51,8 @@ class ESP_Socket:
 class Communicator:
 
     def __init__(self,filename):
+
+        print "STARTED"
 
         self.file = filename
 
@@ -87,6 +89,7 @@ class Communicator:
 
 
     def upload(self,filename):
+        print "UPLOADING"
         data = []
 
         starttime = time.time()
