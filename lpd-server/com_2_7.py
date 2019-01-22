@@ -17,7 +17,7 @@ class ESP_Socket:
         self.commandHeader = [0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x05, 0x00, 0x04, 0x00, 0x00, 0x02, 0x80, 0x19]
 
         if sock is None:
-            self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+            self.sock = socket.socket()
         else:
             self.sock = sock
 

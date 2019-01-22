@@ -36,10 +36,16 @@ void Storage::read()
         size_t required_size_ssid;
         size_t required_size_password;
         nvs_get_str(my_handle, "ssid", NULL, &required_size_ssid);
+        if(required_size_ssid > 32){
+            required_size_ssid = 32;
+        }
         ssid = (char*) malloc(required_size_ssid);
         nvs_get_str(my_handle, "ssid", ssid, &required_size_ssid);
 
         nvs_get_str(my_handle, "password", NULL, &required_size_password);
+        if(required_size_password > 32){
+            required_size_password = 32;
+        }
         password = (char*) malloc(required_size_password);
         nvs_get_str(my_handle, "password", password, &required_size_password);
 

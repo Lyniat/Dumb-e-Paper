@@ -38,7 +38,7 @@ void Beacon::handleWebsite()
             req = req.substring(addr_start + 1, addr_end);
             Serial.print("Request: ");
             Serial.println(req);
-            client.flush();
+            //client.flush();
 
             String s;
             if (req == "/")
