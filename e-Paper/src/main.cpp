@@ -199,8 +199,8 @@ void loop()
             //maxFileSize -= 16; //substract epd header, as it is not part of data
 
             // read chunk size from header
-            chunkLength = (buffer[HEADER_OFFSET_CHUNKSIZE + 0] << 8) |
-                          (buffer[HEADER_OFFSET_CHUNKSIZE + 1] << 0);
+            chunkLength = 81928;//(buffer[HEADER_OFFSET_CHUNKSIZE + 0] << 8) |
+                          //(buffer[HEADER_OFFSET_CHUNKSIZE + 1] << 0);
             sleepTime = 5; // 5 us
 
             // TEMP!!!

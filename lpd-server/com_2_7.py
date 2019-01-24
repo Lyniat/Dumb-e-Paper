@@ -64,7 +64,7 @@ class Communicator:
 
         self.ip = ''
 
-        self.commandHeader = numpy.array([0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x05, 0x00, 0x04, 0x00, 0x00, 0x02, 0x80, 0x10, 0x60, 0x00],dtype=numpy.dtype('b'))
+        self.commandHeader = numpy.array([0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x05, 0x00, 0x04, 0x00, 0x00, 0x02, 0x80, 0x10, 0xC0, 0x00],dtype=numpy.dtype('b'))
 
         self.epdTemplate = numpy.array([0x3d, 0x04, 0x00, 0x05, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
                        0x00, 0x00, 0x00, 0x00],dtype=numpy.dtype('b'))
@@ -84,7 +84,7 @@ class Communicator:
             sys.exit()
 
     def chunks(self,data, size):
-        chunkAmount = (len(data) / size ) + 1
+        chunkAmount = (len(data) / size )
         chunk = []
         for i in range(chunkAmount):
             chunk.append(numpy.arange(size, dtype=numpy.dtype('b')))
@@ -143,7 +143,7 @@ class Communicator:
 
         print format(arraySize, "#08x")
 
-        dataChunks = self.chunks(dataArray, 24576)#24576) #8192
+        dataChunks = self.chunks(dataArray, 81928)#24576) #8192
 
         print "number of chunks: "
         print len(dataChunks)
