@@ -141,8 +141,8 @@ void loop()
     {
     case MAIN_STATE ::STATE_NVS: // read flash
         // try to read "ssid" and "password" from flash
-        ssid = Storage::readSSID();
-        password = Storage::readPassword();
+        ssid = "raspberrypi";//Storage::readSSID();
+        password = "mintmintmint";//Storage::readPassword();
         // try to connect them. if valid, true will be returned
         //success = true;//
         success = WiFiHandler::init(ssid, password);
@@ -169,6 +169,7 @@ void loop()
             {
                 Serial.println(ssid);
                 Serial.println(password);
+                WiFi.mode(WIFI_STA);
                 success = WiFiHandler::init(ssid, password);
                 if (success)
                 {

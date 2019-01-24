@@ -10,6 +10,7 @@
 
 #include "main.hpp"
 #include <WiFi.h>
+#include <WiFiMulti.h>
 
 /**
  * @brief Could be anything but must also be changed in python script
