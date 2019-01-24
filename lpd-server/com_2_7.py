@@ -1,6 +1,7 @@
 import sys
 import socket
 import time
+import numpy
 from PIL import Image
 import json
 
@@ -14,7 +15,7 @@ class ESP_Socket:
 
     def __init__(self, sock=None):
         #                                 x           y           w           h           s
-        self.commandHeader = [0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x05, 0x00, 0x04, 0x00, 0x00, 0x02, 0x80, 0x19]
+        self.commandHeader = numpy.array([0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x05, 0x00, 0x04, 0x00, 0x00, 0x02, 0x80, 0x19],dtype=numpy.dtype('b'))
 
         if sock is None:
             self.sock = socket.socket()
@@ -28,13 +29,12 @@ class ESP_Socket:
         self.sock.close()
 
     def send(self, bytes, isData = 0):
-        for b in bytes:
-            enc = bytearray()
-            enc.append(b)
-            try:
-                self.sock.send(enc)
-            except:
-                print "send failed"
+        print bytes
+        print len(bytes)
+        try:
+            self.sock.send(bytes)
+        except:
+            print "send failed"
         print isData
         if isData == 1:
             answer = ""
@@ -64,10 +64,10 @@ class Communicator:
 
         self.ip = ''
 
-        self.commandHeader = [0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x05, 0x00, 0x04, 0x00, 0x00, 0x02, 0x80, 0x10, 0x60, 0x00]
+        self.commandHeader = numpy.array([0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x05, 0x00, 0x04, 0x00, 0x00, 0x02, 0x80, 0x10, 0x60, 0x00],dtype=numpy.dtype('b'))
 
-        self.epdTemplate = ['\x3d', '\x04', '\x00', '\x05', '\x00', '\x01', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00',
-                       '\x00', '\x00', '\x00', '\x00']
+        self.epdTemplate = numpy.array([0x3d, 0x04, 0x00, 0x05, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                       0x00, 0x00, 0x00, 0x00],dtype=numpy.dtype('b'))
 
         self.loadConf()
 
@@ -83,25 +83,41 @@ class Communicator:
             print "FAILED LOADING CONFIGURATION FILE"
             sys.exit()
 
-    def chunks(self,l, n):
-        for i in xrange(0, len(l), n):
-            yield l[i:i + n]
+    def chunks(self,data, size):
+        chunkAmount = (len(data) / size ) + 1
+        chunk = []
+        for i in range(chunkAmount):
+            chunk.append(numpy.arange(size, dtype=numpy.dtype('b')))
+
+        for i in range (len(data)):
+            chunkNum = i / size
+            pos = i % size
+            c = chunk[chunkNum]
+            c[pos] = data[i]
+        return chunk
+
+
 
 
     def upload(self,filename):
         print "UPLOADING"
         data = []
 
+        headerSize = len(self.epdTemplate)
+        arraySize = 1280 * 1024 / 8 + headerSize
+        print arraySize
+        dataArray = numpy.arange(arraySize,dtype=numpy.dtype('b'))
+
         starttime = time.time()
 
         if filename[-4:].lower() == ".png" or filename[-4:].lower() == ".jpg": # might also work with other image formats
             image = Image.open(filename)
-            image = image.convert('1') # convert to monochrome
 
             # save pixel data into array. attention: it's still one byte per pixel!
             image_data = [image.getpixel((x, y)) for y in range(image.height) for x in range(image.width)]
 
-            data.extend(self.epdTemplate) # workaround: epd header is not used but expected
+            for i in range(headerSize):
+                dataArray[i] = self.epdTemplate[i]
 
             # image data has to be one bit per pixel, so each byte of the source data
             # has to be merged into one bit (which is enough for a monochrome image)
@@ -116,7 +132,7 @@ class Communicator:
                 # if our byte is completed, push it into data array
                 if j == 0:
                     j = 8
-                    data.extend([chr(buf)])
+                    dataArray[i/8 + headerSize] = buf
                     buf = 0
 
         else:
@@ -125,9 +141,9 @@ class Communicator:
 
         print("time for decoding image: "+str(time.time() - starttime))
 
-        print format(len(data), "#08x")
+        print format(arraySize, "#08x")
 
-        dataChunks = list(self.chunks(data, 24576)) #8192
+        dataChunks = self.chunks(dataArray, 24576)#24576) #8192
 
         print "number of chunks: "
         print len(dataChunks)

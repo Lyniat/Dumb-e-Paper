@@ -141,8 +141,8 @@ void loop()
     {
     case MAIN_STATE ::STATE_NVS: // read flash
         // try to read "ssid" and "password" from flash
-        ssid = "raspberrypi";//Storage::readSSID();
-        password = "mintmintmint";//Storage::readPassword();
+        ssid = "LenniLenardo";//Storage::readSSID();
+        password = "1a2b3c4d";//Storage::readPassword();
         // try to connect them. if valid, true will be returned
         //success = true;//
         success = WiFiHandler::init(ssid, password);
