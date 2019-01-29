@@ -2,6 +2,7 @@
 
 WiFiServer server(PORT);
 WiFiClient client;
+WiFiMulti wifiMulti;
 
 const byte WiFiHandler::O = 0x4F;
 const byte WiFiHandler::K = 0x4B;
@@ -20,19 +21,50 @@ bool WiFiHandler::init(String ssid, String password)
 
     Serial.println(new_password);
     Serial.println(new_ssid);
-    WiFi.begin(new_ssid, new_password);
+
+    WiFi.persistent(false);
+    WiFi.disconnect(true,true);
+    WiFi.mode(WIFI_OFF);
+    WiFi.mode(WIFI_STA);
+
+    // WiFi.scanNetworks will return the number of networks found
+    int n = WiFi.scanNetworks();
+    Serial.println("scan done");
+    if (n == 0) {
+        Serial.println("no networks found");
+    } else {
+        Serial.print(n);
+        Serial.println(" networks found");
+        for (int i = 0; i < n; ++i) {
+            // Print SSID and RSSI for each network found
+            Serial.print(i + 1);
+            Serial.print(": ");
+            Serial.print(WiFi.SSID(i));
+            Serial.print(" (");
+            Serial.print(WiFi.RSSI(i));
+            Serial.print(")");
+            Serial.println((WiFi.encryptionType(i) == WIFI_AUTH_OPEN)?" ":"*");
+            delay(10);
+        }
+    }
+    delay(1000);
+    wifiMulti.addAP(new_ssid, new_password);
+    //WiFi.begin(new_ssid, new_password);
+    //WiFi.setSleep(false);
 
     Serial.println("connecting");
 
     int counter = 0;
 
-    while (WiFi.status() != WL_CONNECTED)
+    while (wifiMulti.run() != WL_CONNECTED)
     {
         delay(500);
-        Serial.print(".");
+        //Serial.print(".");
+        //Serial.println(WiFi.status());
+        //WiFi.begin(new_ssid, new_password);
         counter++;
 
-        if (counter >= 25)
+        if (counter >= 20)
         {
             return false;
         }
@@ -72,7 +104,7 @@ WiFiStatus WiFiHandler::handle(byte *buffer, int le)
 
     client.readBytes(buffer, le);
 
-    client.flush();
+    //client.flush();
 
     return WiFiStatus::WIFI_SUCCESS;
 }

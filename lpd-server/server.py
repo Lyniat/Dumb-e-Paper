@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 import logging
-from zeroconf import ServiceInfo, Zeroconf, DNSOutgoing
 
 import socket
 import time
@@ -206,42 +205,11 @@ class Server:
         except OSError:
             pass
 
-    '''
-        starts and hosts the zeroconf service and restarts if it crashes
-    '''
-    def hostZeroConf(self):
-        while(True):
-            try:
-                self.zeroConf()
-            except:
-                print("Zeroconf failed. Starting again")
-            yield
-
-    '''
-        host zeroconf service, so that printer can be found in network
-        see: https://en.wikipedia.org/wiki/Zero-configuration_networking
-    '''
-    def zeroConf(self):
-        print("starting zeroconf")
-        #logging.basicConfig(level=logging.DEBUG)
-
-        desc = {}
-
-        info = ServiceInfo("_printer._tcp.local.",
-                           "e-Paper._printer._tcp.local.",
-                           socket.inet_aton(self.PRINTER_IP), self.PRINTER_PORT, 0, 0,
-                           desc, "lpd.local.")
-
-        zeroconf = Zeroconf()
-        zeroconf.register_service(info)
-        print("zeroconf registered device")
-
 
 resetTime = -1
 '''
     program entry point
     starts lpd socket
-    and zeroconf server in a new thread
 '''
 if __name__ == '__main__':
     print("started application")
@@ -259,8 +227,6 @@ if __name__ == '__main__':
     server = Server()
 
     server.loadConf()
-
-    start_new_thread(server.zeroConf,())
 
     global resetTime
 

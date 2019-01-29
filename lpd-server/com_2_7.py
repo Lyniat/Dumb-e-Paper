@@ -1,6 +1,7 @@
 import sys
 import socket
 import time
+import numpy
 from PIL import Image
 import json
 
@@ -14,7 +15,7 @@ class ESP_Socket:
 
     def __init__(self, sock=None):
         #                                 x           y           w           h           s
-        self.commandHeader = [0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x05, 0x00, 0x04, 0x00, 0x00, 0x02, 0x80, 0x19]
+        self.commandHeader = numpy.array([0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x05, 0x00, 0x04, 0x00, 0x00, 0x02, 0x80, 0x19],dtype=numpy.dtype('b'))
 
         if sock is None:
             self.sock = socket.socket()
@@ -28,13 +29,12 @@ class ESP_Socket:
         self.sock.close()
 
     def send(self, bytes, isData = 0):
-        for b in bytes:
-            enc = bytearray()
-            enc.append(b)
-            try:
-                self.sock.send(enc)
-            except:
-                print "send failed"
+        print bytes
+        print len(bytes)
+        try:
+            self.sock.send(bytes)
+        except:
+            print "send failed"
         print isData
         if isData == 1:
             answer = ""
@@ -52,6 +52,8 @@ class Communicator:
 
     def __init__(self,filename):
 
+        print "STARTED"
+
         self.file = filename
 
         self.CONF_FILE = './conf.json'
@@ -62,10 +64,10 @@ class Communicator:
 
         self.ip = ''
 
-        self.commandHeader = [0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x05, 0x00, 0x04, 0x00, 0x00, 0x02, 0x80, 0x10, 0x60, 0x00]
+        self.commandHeader = numpy.array([0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x05, 0x00, 0x04, 0x00, 0x00, 0x02, 0x80, 0x10, 0xC0, 0x00],dtype=numpy.dtype('b'))
 
-        self.epdTemplate = ['\x3d', '\x04', '\x00', '\x05', '\x00', '\x01', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00',
-                       '\x00', '\x00', '\x00', '\x00']
+        self.epdTemplate = numpy.array([0x3d, 0x04, 0x00, 0x05, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                       0x00, 0x00, 0x00, 0x00],dtype=numpy.dtype('b'))
 
         self.loadConf()
 
@@ -81,40 +83,39 @@ class Communicator:
             print "FAILED LOADING CONFIGURATION FILE"
             sys.exit()
 
-    def chunks(self,l, n):
-        for i in xrange(0, len(l), n):
-            yield l[i:i + n]
+    def chunks(self,data, size):
+        chunkAmount = (len(data) / size )
+        chunk = []
+        for i in range(chunkAmount):
+            chunk.append(numpy.arange(size, dtype=numpy.dtype('b')))
+
+        for i in range (len(data)):
+            chunkNum = i / size
+            pos = i % size
+            c = chunk[chunkNum]
+            c[pos] = data[i]
+        return chunk
+
+
 
 
     def upload(self,filename):
-        data = []
+        print "UPLOADING"
 
         starttime = time.time()
 
         if filename[-4:].lower() == ".png" or filename[-4:].lower() == ".jpg": # might also work with other image formats
             image = Image.open(filename)
-            image = image.convert('1') # convert to monochrome
 
             # save pixel data into array. attention: it's still one byte per pixel!
-            image_data = [image.getpixel((x, y)) for y in range(image.height) for x in range(image.width)]
+            image_data = numpy.asarray(image)
 
-            data.extend(self.epdTemplate) # workaround: epd header is not used but expected
+            image_data = image_data.flatten()
+            image_data = numpy.right_shift(image_data,7)
+            image_data = numpy.packbits(image_data, axis=-1)
+            image_data = numpy.invert(image_data)
 
-            # image data has to be one bit per pixel, so each byte of the source data
-            # has to be merged into one bit (which is enough for a monochrome image)
-            j = 8   # bit index of current byte
-            buf = 0 # buffer to store bits
-            for i in range(len(image_data)):
-                j -= 1
-
-                # shift new bit to left by index, then or it over the current buffer
-                buf |= (image_data[i] == 0) << j
-
-                # if our byte is completed, push it into data array
-                if j == 0:
-                    j = 8
-                    data.extend([chr(buf)])
-                    buf = 0
+            dataArray = numpy.concatenate((self.epdTemplate, image_data), axis=None)
 
         else:
             print "Error: Unsupported file format!"
@@ -122,9 +123,7 @@ class Communicator:
 
         print("time for decoding image: "+str(time.time() - starttime))
 
-        print format(len(data), "#08x")
-
-        dataChunks = list(self.chunks(data, 24576)) #8192
+        dataChunks = self.chunks(dataArray, 81928)#24576) #8192
 
         print "number of chunks: "
         print len(dataChunks)

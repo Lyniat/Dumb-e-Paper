@@ -97,12 +97,18 @@ void setup()
     pinMode(PIN_BLUE, OUTPUT);
     pinMode(PIN_YELLOW, OUTPUT);
 
+    WiFi.mode(WIFI_STA);
+
     SPIHandler::init();
 
     Serial.begin(9600);
     delay(1000);
 
     SPIHandler::start();
+
+    Storage::init();
+
+    SPIHandler::displayUpdate(0x86);
 
     delay(1000);
 }
@@ -135,8 +141,8 @@ void loop()
     {
     case MAIN_STATE ::STATE_NVS: // read flash
         // try to read "ssid" and "password" from flash
-        ssid = Storage::readSSID();
-        password = Storage::readPassword();
+        ssid = "raspberrypi";//Storage::readSSID();
+        password = "mintmintmint";//Storage::readPassword();
         // try to connect them. if valid, true will be returned
         //success = true;//
         success = WiFiHandler::init(ssid, password);
@@ -163,6 +169,7 @@ void loop()
             {
                 Serial.println(ssid);
                 Serial.println(password);
+                WiFi.mode(WIFI_STA);
                 success = WiFiHandler::init(ssid, password);
                 if (success)
                 {
@@ -192,8 +199,8 @@ void loop()
             //maxFileSize -= 16; //substract epd header, as it is not part of data
 
             // read chunk size from header
-            chunkLength = (buffer[HEADER_OFFSET_CHUNKSIZE + 0] << 8) |
-                          (buffer[HEADER_OFFSET_CHUNKSIZE + 1] << 0);
+            chunkLength = 81928;//(buffer[HEADER_OFFSET_CHUNKSIZE + 0] << 8) |
+                          //(buffer[HEADER_OFFSET_CHUNKSIZE + 1] << 0);
             sleepTime = 5; // 5 us
 
             // TEMP!!!

@@ -14,7 +14,7 @@ https://hci.ur.de/projects/epaper
 http://paper.lyniat.games/log
 
 ## Hardware
-* [ESP 8266 (WEMOS D1 mini R2)](https://wiki.wemos.cc/products:d1:d1_mini)
+* [LOLIN D32 Pro](https://wiki.wemos.cc/products:d32:d32_pro)
 * [10.2" E ink Display](http://www.pervasivedisplays.com/products/102)
 * [TCM2-P102 Controller](http://www.pervasivedisplays.com/LiteratureRetrieve.aspx?ID=232053)
 
@@ -26,8 +26,7 @@ http://paper.lyniat.games/log
 with [PlatformIO](http://platformio.org)
 
 1. [Download](https://platformio.org/platformio-ide) and install PlatformIO
-2. [Download](https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers) and install the ESP8266 USB driver
-3. Build and upload
+2. Build and upload
 
 ## License
 * MIT
