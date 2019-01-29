@@ -101,24 +101,14 @@ class Communicator:
 
     def upload(self,filename):
         print "UPLOADING"
-        data = []
-
-        headerSize = len(self.epdTemplate)
-        arraySize = 1280 * 1024 / 8 + headerSize
-        print arraySize
-        dataArray = numpy.arange(arraySize,dtype=numpy.dtype('b'))
-
+        
         starttime = time.time()
 
         if filename[-4:].lower() == ".png" or filename[-4:].lower() == ".jpg": # might also work with other image formats
             image = Image.open(filename)
-            #image = image.convert('L')
 
             # save pixel data into array. attention: it's still one byte per pixel!
-            image_data = numpy.asarray(image) #[image.getpixel((x, y)) for y in range(image.height) for x in range(image.width)]
-
-            for i in range(headerSize):
-                dataArray[i] = self.epdTemplate[i]
+            image_data = numpy.asarray(image)
 
             image_data = image_data.flatten()
             image_data = numpy.right_shift(image_data,7)
@@ -126,41 +116,12 @@ class Communicator:
             image_data = numpy.invert(image_data)
 
             dataArray = numpy.concatenate((self.epdTemplate, image_data), axis=None)
-            print "image data"
-            #arsize = len(image_data) * len(image_data[0])
-            print len(image_data)
-            print image_data
-
-            print "data array"
-            print len(dataArray)
-            print dataArray
-            
-            # image data has to be one bit per pixel, so each byte of the source data
-            # has to be merged into one bit (which is enough for a monochrome image)
-            #j = 8   # bit index of current byte
-            #buf = 0 # buffer to store bits
-            #x = 0
-            #y = 0
-            #for i in xrange(0,len(image_data),1):
-             #   j -= 1
-
-                # shift new bit to left by index, then or it over the current buffer
-                #print image_data[y][x]
-              #  buf |= (image_data[i] == 0) << j
-
-                # if our byte is completed, push it into data array
-               # if j == 0:
-                #    j = 8
-                 #   dataArray[i/8 + headerSize] = buf
-                  #  buf = 0
 
         else:
             print "Error: Unsupported file format!"
             return
 
         print("time for decoding image: "+str(time.time() - starttime))
-
-        print format(arraySize, "#08x")
 
         dataChunks = self.chunks(dataArray, 81928)#24576) #8192
 
