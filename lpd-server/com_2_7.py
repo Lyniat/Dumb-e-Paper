@@ -101,7 +101,7 @@ class Communicator:
 
     def upload(self,filename):
         print "UPLOADING"
-        
+
         starttime = time.time()
 
         if filename[-4:].lower() == ".png" or filename[-4:].lower() == ".jpg": # might also work with other image formats
