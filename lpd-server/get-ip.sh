@@ -1,1 +1,1 @@
-arp -a | grep -E 'ESP' | grep -oP  '\((.*?)\)' | sed 's/)//' | sed 's/(//' | tail -1
+arp -a | grep -E 'espressif' | grep -oP  '\((.*?)\)' | sed 's/)//' | sed 's/(//' | tail -1
