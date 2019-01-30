@@ -11,7 +11,7 @@ import json
 '''
 class ESP_Socket:
 
-    ANSWER = "OK"
+    ANSWER = "7975" #OK
 
     def __init__(self, sock=None):
         #                                 x           y           w           h           s
@@ -39,7 +39,9 @@ class ESP_Socket:
         if isData == 1:
             answer = ""
             while(True):
-                answer += self.sock.recv(1)
+                answerB = self.sock.recv(1)
+                answer += str(answerB[0])
+                print (answer)
                 if answer == self.ANSWER:
                     print("received: "+answer)
                     print("send next chunk!")
@@ -84,13 +86,13 @@ class Communicator:
             sys.exit()
 
     def chunks(self,data, size):
-        chunkAmount = (len(data) / size )
+        chunkAmount = int((len(data) / size ))
         chunk = []
         for i in range(chunkAmount):
             chunk.append(numpy.arange(size, dtype=numpy.dtype('b')))
 
         for i in range (len(data)):
-            chunkNum = i / size
+            chunkNum = int(i / size)
             pos = i % size
             c = chunk[chunkNum]
             c[pos] = data[i]
