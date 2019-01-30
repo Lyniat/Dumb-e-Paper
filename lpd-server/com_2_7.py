@@ -106,12 +106,14 @@ class Communicator:
 
         if filename[-4:].lower() == ".png" or filename[-4:].lower() == ".jpg": # might also work with other image formats
             image = Image.open(filename)
+            image = image.convert('1')
 
             # save pixel data into array. attention: it's still one byte per pixel!
             image_data = numpy.asarray(image)
+            #print(image_data)
 
             image_data = image_data.flatten()
-            image_data = numpy.right_shift(image_data,7)
+            #image_data = numpy.right_shift(image_data,7)
             image_data = numpy.packbits(image_data, axis=-1)
             image_data = numpy.invert(image_data)
 

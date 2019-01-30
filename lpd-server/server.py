@@ -104,11 +104,15 @@ class Server:
     def convert(self):
         timeBeforeConversion = time.time()
         print("fixing image")
-        self.fixBoundingBox() #PIL has problem with eps bounding box if not fixed
+        try:
+           self.fixBoundingBox() #PIL has problem with eps bounding box if not fixed
+        except:
+           pass
         print("starting converting image")
         image = Image.open(self.TEMP_FILE)
         image.load(scale=self.QUALITY)
         image = image.resize((self.HEIGHT,self.WIDTH), Image.ANTIALIAS)
+        #image = image.convert('1') #monochrome
         image.save(self.CONVERTED_FILE)
 
         try:
@@ -200,10 +204,10 @@ class Server:
         except:
             print("\n\nUPLOAD FAILED!\n")
 
-        try:
-            os.remove(self.CONVERTED_FILE)
-        except OSError:
-            pass
+       # try:
+        #    os.remove(self.CONVERTED_FILE)
+        #except OSError:
+           # pass
 
 
 resetTime = -1
