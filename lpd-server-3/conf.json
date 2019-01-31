@@ -1,1 +1,1 @@
-{"files": {"temp": "./.temp.eps", "converted": "./.converted.png"}, "chunk": {"size": 24576}, "image": {"quality": 3, "height": 1024, "width": 1280}, "client": {"port": 1516, "ip": "192.168.4.11"}, "printer": {"port": 1515, "ip": "127.0.0.1"}}
+{"printer": {"port": 1515, "ip": "127.0.0.1"}, "client": {"port": 1516, "ip": "192.168.4.11"}, "files": {"temp": "./.temp.eps", "converted": "./.converted.png"}, "image": {"width": 1280, "height": 1024, "quality": 3}, "chunk": {"size": 24576}}

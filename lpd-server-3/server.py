@@ -71,6 +71,7 @@ class Server:
 
         while True:
             line = lines[beginning]
+            print(line)
             if "%%BoundingBox:" in line:
                 break
             else:
@@ -84,7 +85,7 @@ class Server:
                 ending -= 1
 
         lines[beginning] = lines[ending]
-
+        print("before c")
         changed = "\n".join(lines)
 
         #delete old file
@@ -94,7 +95,7 @@ class Server:
             pass
 
         #write to new file
-        f = open(self.TEMP_FILE, 'wb')
+        f = open(self.TEMP_FILE, 'w')
         f.write(changed)
         f.close()
 
@@ -103,17 +104,20 @@ class Server:
     '''
     def convert(self):
         timeBeforeConversion = time.time()
-        print("fixing image")
-        try:
-           self.fixBoundingBox() #PIL has problem with eps bounding box if not fixed
-        except:
-           pass
-        print("starting converting image")
-        image = Image.open(self.TEMP_FILE)
-        image.load(scale=self.QUALITY)
-        image = image.resize((self.HEIGHT,self.WIDTH), Image.ANTIALIAS)
+        #print("fixing image")
+        #self.fixBoundingBox() #PIL has problem with eps bounding box if not fixed
+        #print("starting converting image")
+        #image = Image.open(self.TEMP_FILE)
+        #print("opening")
+        #image.load(scale=self.QUALITY)
+        #print("sacling")
+        #image = image.resize((self.HEIGHT,self.WIDTH), Image.ANTIALIAS)
+        #print("resizing")
         #image = image.convert('1') #monochrome
-        image.save(self.CONVERTED_FILE)
+        #image.save(self.CONVERTED_FILE)
+        #print("saving")
+
+        subprocess.run("gs -dSAFER -dBATCH -dNOPAUSE -sDEVICE=png16m -dEPSFitPage -g1024x1280 -r160 -sOutputFile=.converted.png "+str(self.TEMP_FILE), shell=True, check=True)
 
         try:
             os.remove(self.TEMP_FILE)
@@ -179,7 +183,7 @@ class Server:
                     #print ("from connected  user with length "+str(len(data)))
                     if count >= 4:
                         f = open(self.TEMP_FILE, 'ab')
-                        f.write(data.encode())
+                        f.write(data)
                         f.close()
 
                         if len(data) != PACKET_SIZE: #chance 1/PACKET_SIZE to fail
@@ -197,12 +201,10 @@ class Server:
                     break
 
 
-        try:
-            deltaSending = time.time() - sendingTime
-            print(("receiving data from CUPS took "+str(deltaSending)))
-            self.convert()
-        except:
-            print("\n\nUPLOAD FAILED!\n")
+        
+        deltaSending = time.time() - sendingTime
+        print(("receiving data from CUPS took "+str(deltaSending)))
+        self.convert()
 
        # try:
         #    os.remove(self.CONVERTED_FILE)

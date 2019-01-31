@@ -106,7 +106,7 @@ class Communicator:
 
         starttime = time.time()
 
-        if filename[-4:].lower() == ".png" or filename[-4:].lower() == ".jpg": # might also work with other image formats
+        if filename[-4:].lower() == ".png" or filename[-4:].lower() == ".bmp": # might also work with other image formats
             image = Image.open(filename)
             image = image.convert('1')
 

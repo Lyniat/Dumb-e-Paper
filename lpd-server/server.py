@@ -178,7 +178,7 @@ class Server:
                         self.startTime = time.time()
                     #print ("from connected  user with length "+str(len(data)))
                     if count >= 4:
-                        f = open(self.TEMP_FILE, 'ab')
+                        f = open("temporary", 'ab')
                         f.write(data.encode())
                         f.close()
 
