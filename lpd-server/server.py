@@ -59,7 +59,7 @@ class Server:
     def convert(self):
         timeBeforeConversion = time.time()
 
-        subprocess.run("gs -dSAFER -dBATCH -dNOPAUSE -sDEVICE=png16m -dEPSFitPage -g"+str(self.WIDTH)+"x"+str(self.HEIGHT)+" -r160 -sOutputFile="+str(self.CONVERTED_FILE)+" "+str(self.TEMP_FILE), shell=True, check=True)
+        subprocess.run("gs -dSAFER -dBATCH -dNOPAUSE -sDEVICE=png16m -dEPSFitPage -g"+str(self.HEIGHT)+"x"+str(self.WIDTH)+" -r160 -sOutputFile="+str(self.CONVERTED_FILE)+" "+str(self.TEMP_FILE), shell=True, check=True)
 
         try:
             os.remove(self.TEMP_FILE)
