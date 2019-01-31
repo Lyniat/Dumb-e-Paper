@@ -2,14 +2,13 @@
 
 [GitHub](https://github.com/Lyniat/BA-e-ink/tree/master) / [Log](https://lyniat.github.io/BA-e-ink/)
 
-Includes (as of February 2, 2018):
-* [ESP 8266 (WEMOS D1 mini R2)](https://wiki.wemos.cc/products:d1:d1_mini)
+Includes (as of January 30, 2019):
+* [ESP 32 (WEMOS Lolin D32 Pro)](https://wiki.wemos.cc/products:d32:d32_pro)
+* [Raspberry Pi 3 B+](https://www.raspberrypi.org/products/raspberry-pi-3-model-b-plus/)
 * [10.2" E ink Display](http://www.pervasivedisplays.com/products/102)
 * [TCM2-P102 Controller](http://www.pervasivedisplays.com/LiteratureRetrieve.aspx?ID=232053)
 
-![summary](./plan_transparent.png "Summary")
-
-[CURRENT STATE](#19-01-22)
+[CURRENT STATE](#19-01-30)
 
 [TODO](#todo)
 
@@ -153,6 +152,15 @@ makes no difference if used Python 2.7.10 or Python 3.6.1 or PyPy 2.7.13/5.9.0
 
 * updated ESP32 core to 1.0.1
 * this fixed slow TCP connection, so LOLIN D32 PRO will be used for future development
+
+## January 28, 2019 by L.M. <a id="19-01-28"></a>
+
+* now using numpy arrays instead of python list
+* this changes iage decoding time on raspberry pi from ≈ 15s to ≈ 0.1s !
+
+## January 30, 2019 by L.M. <a id="19-01-30"></a>
+
+* ported some python 2 code to python 3
 
 
 ## TODO (might change)<a id="todo"></a>
