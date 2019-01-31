@@ -7,9 +7,9 @@ import time
 import os
 import sys
 from PIL import Image, ImageFile
-from thread import start_new_thread
+from _thread import start_new_thread
 import json
-import commands
+import subprocess
 import get_ip
 
 import com_2_7
@@ -50,70 +50,16 @@ class Server:
             self.PRINTER_IP = conf["printer"]["ip"]
             self.PRINTER_PORT = conf["printer"]["port"]
         except:
-            print "FAILED LOADING CONFIGURATION FILE"
+            print("FAILED LOADING CONFIGURATION FILE")
             sys.exit()
-
-    '''
-        the postscript driver writes "%%BoundingBox:" with values to the end of the file
-        but PIL can not convert the ps document if "%%BoundingBox:" has no values at the beginning
-        this fix writes the values from the last "%%BoundingBox:" to the first one
-    '''
-    def fixBoundingBox(self):
-        #read file
-        with open(self.TEMP_FILE, 'r') as file:
-            content = file.read()
-
-        #change bounding box
-        lines = content.split("\n")
-
-        beginning = 0
-        ending = len(lines) -1
-
-        while True:
-            line = lines[beginning]
-            if "%%BoundingBox:" in line:
-                break
-            else:
-                beginning += 1
-
-        while True:
-            line = lines[ending]
-            if "%%BoundingBox:" in line:
-                break
-            else:
-                ending -= 1
-
-        lines[beginning] = lines[ending]
-
-        changed = "\n".join(lines)
-
-        #delete old file
-        try:
-            os.remove(self.TEMP_FILE)
-        except OSError:
-            pass
-
-        #write to new file
-        f = open(self.TEMP_FILE, 'wb')
-        f.write(changed)
-        f.close()
 
     '''
         converts ps file to png and sends image to upload script
     '''
     def convert(self):
         timeBeforeConversion = time.time()
-        print("fixing image")
-        try:
-           self.fixBoundingBox() #PIL has problem with eps bounding box if not fixed
-        except:
-           pass
-        print("starting converting image")
-        image = Image.open(self.TEMP_FILE)
-        image.load(scale=self.QUALITY)
-        image = image.resize((self.HEIGHT,self.WIDTH), Image.ANTIALIAS)
-        #image = image.convert('1') #monochrome
-        image.save(self.CONVERTED_FILE)
+
+        subprocess.run("gs -dSAFER -dBATCH -dNOPAUSE -sDEVICE=png16m -dEPSFitPage -g"+str(self.WIDTH)+"x"+str(self.HEIGHT)+" -r160 -sOutputFile="+str(self.CONVERTED_FILE)+" "+str(self.TEMP_FILE), shell=True, check=True)
 
         try:
             os.remove(self.TEMP_FILE)
@@ -123,16 +69,16 @@ class Server:
         print("finished converting image")
 
         deltaConversion = time.time() - timeBeforeConversion
-        print ("took " + str(deltaConversion) + " seconds for converting image")
+        print(("took " + str(deltaConversion) + " seconds for converting image"))
 
         timeBeforeUpload = time.time()
         com_2_7.upload(self.CONVERTED_FILE)
         deltaUpload = time.time() - timeBeforeUpload
-        print ("took " + str(deltaUpload) + " seconds for uploading and decoding image")
+        print(("took " + str(deltaUpload) + " seconds for uploading and decoding image"))
 
         print ("UPLOADED SUCCESSFULLY!")
         delta = time.time() - self.startTime
-        print ("took "+str(delta)+" seconds for whole process")
+        print(("took "+str(delta)+" seconds for whole process"))
         self.startTime = -1
 
     '''
@@ -160,7 +106,7 @@ class Server:
 
         mySocket.listen(1)
         conn, addr = mySocket.accept()
-        print ("Connection from: " + str(addr))
+        print(("Connection from: " + str(addr)))
         while True:
             try:
                 data = conn.recv(PACKET_SIZE)
@@ -178,8 +124,8 @@ class Server:
                         self.startTime = time.time()
                     #print ("from connected  user with length "+str(len(data)))
                     if count >= 4:
-                        f = open("temporary", 'ab')
-                        f.write(data.encode())
+                        f = open(self.TEMP_FILE, 'ab')
+                        f.write(data)
                         f.close()
 
                         if len(data) != PACKET_SIZE: #chance 1/PACKET_SIZE to fail
@@ -197,12 +143,10 @@ class Server:
                     break
 
 
-        try:
-            deltaSending = time.time() - sendingTime
-            print("receiving data from CUPS took "+str(deltaSending))
-            self.convert()
-        except:
-            print("\n\nUPLOAD FAILED!\n")
+        
+        deltaSending = time.time() - sendingTime
+        print(("receiving data from CUPS took "+str(deltaSending)))
+        self.convert()
 
        # try:
         #    os.remove(self.CONVERTED_FILE)
@@ -223,7 +167,7 @@ if __name__ == '__main__':
     '''
         get ip from raspberry and save to config
     '''
-    values = commands.getstatusoutput('sh get-ip.sh')
+    values = subprocess.getstatusoutput('sh get-ip.sh')
     ip = values[1]
     print (ip)
     get_ip.change_ip(ip)
@@ -232,7 +176,7 @@ if __name__ == '__main__':
 
     server.loadConf()
 
-    global resetTime
+    resetTime
 
     while True:
         try:
@@ -246,6 +190,6 @@ if __name__ == '__main__':
                # except:
                    # print("LPD Server failed. Starting again")
         except Exception as err:
-            print("Exception: "+str(err))
+            print(("Exception: "+str(err)))
             print("starting server again")
             resetTime = -1

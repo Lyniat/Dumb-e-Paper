@@ -11,7 +11,7 @@ import json
 '''
 class ESP_Socket:
 
-    ANSWER = "OK"
+    ANSWER = "7975" #OK
 
     def __init__(self, sock=None):
         #                                 x           y           w           h           s
@@ -29,20 +29,22 @@ class ESP_Socket:
         self.sock.close()
 
     def send(self, bytes, isData = 0):
-        print bytes
-        print len(bytes)
+        print(bytes)
+        print(len(bytes))
         try:
             self.sock.send(bytes)
         except:
-            print "send failed"
-        print isData
+            print("send failed")
+        print(isData)
         if isData == 1:
             answer = ""
             while(True):
-                answer += self.sock.recv(1)
+                answerB = self.sock.recv(1)
+                answer += str(answerB[0])
+                print (answer)
                 if answer == self.ANSWER:
-                    print "received: "+answer
-                    print "send next chunk!"
+                    print("received: "+answer)
+                    print("send next chunk!")
                     break
 
 '''
@@ -52,7 +54,7 @@ class Communicator:
 
     def __init__(self,filename):
 
-        print "STARTED"
+        print("STARTED")
 
         self.file = filename
 
@@ -80,17 +82,17 @@ class Communicator:
             self.ip = conf["client"]["ip"]
             self.PORT = conf["client"]["port"]
         except:
-            print "FAILED LOADING CONFIGURATION FILE"
+            print("FAILED LOADING CONFIGURATION FILE")
             sys.exit()
 
     def chunks(self,data, size):
-        chunkAmount = (len(data) / size )
+        chunkAmount = int((len(data) / size ))
         chunk = []
         for i in range(chunkAmount):
             chunk.append(numpy.arange(size, dtype=numpy.dtype('b')))
 
         for i in range (len(data)):
-            chunkNum = i / size
+            chunkNum = int(i / size)
             pos = i % size
             c = chunk[chunkNum]
             c[pos] = data[i]
@@ -100,11 +102,11 @@ class Communicator:
 
 
     def upload(self,filename):
-        print "UPLOADING"
+        print("UPLOADING")
 
         starttime = time.time()
 
-        if filename[-4:].lower() == ".png" or filename[-4:].lower() == ".jpg": # might also work with other image formats
+        if filename[-4:].lower() == ".png" or filename[-4:].lower() == ".bmp": # might also work with other image formats
             image = Image.open(filename)
             image = image.convert('1')
 
@@ -120,17 +122,17 @@ class Communicator:
             dataArray = numpy.concatenate((self.epdTemplate, image_data), axis=None)
 
         else:
-            print "Error: Unsupported file format!"
+            print("Error: Unsupported file format!")
             return
 
-        print("time for decoding image: "+str(time.time() - starttime))
+        print(("time for decoding image: "+str(time.time() - starttime)))
 
         dataChunks = self.chunks(dataArray, 81928)#24576) #8192
 
-        print "number of chunks: "
-        print len(dataChunks)
+        print("number of chunks: ")
+        print(len(dataChunks))
 
-        print "send command header"
+        print("send command header")
         sock = ESP_Socket()
         sock.connect(self.ip, self.PORT)
         sock.send(self.commandHeader)
@@ -138,18 +140,18 @@ class Communicator:
 
         j = 0
 
-        print "start sending..."
+        print("start sending...")
 
-        print "send data"
+        print("send data")
         for chunk in dataChunks:
-            print j
+            print(j)
             j += 1
             sock = ESP_Socket()
             sock.connect(self.ip, self.PORT)
             sock.send(chunk, 1)
             sock.disconnect()
 
-        print "finished"
+        print("finished")
 
 
 '''
