@@ -20,7 +20,8 @@ http://paper.lyniat.games/log
 
 ## Software
 #### Execution
-* Python 2.7
+* Python 3.5
+* Ghostscript
 
 #### Building
 with [PlatformIO](http://platformio.org)
